@@ -63,10 +63,10 @@ const EditProfilePage = () => {
     };
 
     return (
-        <div className="w-full md:h-screen dark:bg-[rgb(18,18,18)]" >
+        <div className="w-full md:h-screen" >
             <div className=' flex w-full justify-center items-center pt-[120px] mb-[60px]'>
                 <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[100px]' style={{ fontFamily: 'Smack' }}>
-                    {/* <div className=' flex justify-center items-center  md:justify-start md:items-start text-[rgb(18,18,18)] w-full dark:text-white text-[30px] mt-[30px] lg:mt-[-30px]'>Profile details</div> */}
+                    {/* <div className=' flex justify-center items-center  md:justify-start md:items-start text-[#1e2738] w-full dark:text-white text-[30px] mt-[30px] lg:mt-[-30px]'>Profile details</div> */}
                     <div className='flex justify-center items-center w-full'>
                         <div className='flex justify-center items-center w-full'>
                             <div className=' mt-[20px] w-full flex justify-center items-center'>
@@ -76,7 +76,7 @@ const EditProfilePage = () => {
                                     </span>
                                     <input type="file" accept=".png, .jpg, .jpeg" onChange={handleAvatarFile} className="opacity-0 w-full h-full cursor-pointer border rounded-[50%]" />
                                 </div>
-                                <div className='justify-center flex group items-center h-[10rem] w-[10rem] overflow-y-hidden bg-[#e1e1e1] hover:bg-[#cbcbcb] transition-all dark:bg-[rgb(30,30,30)] dark:hover:bg-[rgb(33,33,33)] cursor-pointer dark:border-[rgb(18,18,18)] border-[#ffffff] border-[5px] rounded-[50%]'>
+                                <div className='justify-center flex group items-center h-[10rem] w-[10rem] overflow-y-hidden bg-[#e1e1e1] hover:bg-[#cbcbcb] transition-all dark:bg-[rgb(30,30,30)] dark:hover:bg-[rgb(33,33,33)] cursor-pointer dark:border-[#1e2738] border-[#ffffff] border-[5px] rounded-[50%]'>
 
                                     {avatarFile.file ?
                                         <span className='w-full h-full flex overflow-y-hidden'>
@@ -91,7 +91,7 @@ const EditProfilePage = () => {
                         </div>
                     </div>
                     <div className='flex justify-center items-center mt-[50px] w-full md:gap-[100px] gap-[50px] md:flex-row flex-col'>
-                        <div className='flex justify-start items-start flex-col'>
+                        <div className='grid md:grid-cols-2 gap-4'>
                             <div className='flex justify-start w-full items-start flex-col'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Email</label>
                                 <input
@@ -100,73 +100,94 @@ const EditProfilePage = () => {
                                     onChange={({ target: { value: email } }) => {
                                         setUserData({ ...userData, email });
                                     }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[rgb(18,18,18)] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter email" />
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter email" />
                             </div>
-                            <div className='flex justify-center items-start w-full flex-col mt-[40px]'>
+                            <div className='flex justify-center items-start w-full flex-col'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Discord Name</label>
                                 <input
                                     value={userData?.discordName}
                                     onChange={({ target: { value: discordName } }) => {
                                         setUserData({ ...userData, discordName });
                                     }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[rgb(18,18,18)] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter discordname" />
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter discordname" />
                             </div>
-                            <div className='flex justify-start w-full items-start flex-col mt-[40px]'>
+                            <div className='flex justify-start w-full items-start flex-col'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Wallet Network</label>
+                                <input
+                                    disabled
+                                    value={'Ethereum'}
+                                    // value={userData?.walletNetwork}
+                                    onChange={({ target: { value: walletNetwork } }) => {
+                                        setUserData({ ...userData, walletNetwork });
+                                    }}
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" 
+                                />
+                                <input
+                                    disabled
+                                    value={'Polkadot'}
+                                    // value={userData?.walletNetwork}
+                                    // onChange={({ target: { value: walletNetwork } }) => {
+                                    //     setUserData({ ...userData, walletNetwork });
+                                    // }}
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" 
+                                />
+                            </div>
+                            <div className='flex justify-start w-full items-start flex-col'>
+                                <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Wallet Key</label>
                                 <input
                                     value={userData?.walletNetwork}
                                     onChange={({ target: { value: walletNetwork } }) => {
                                         setUserData({ ...userData, walletNetwork });
                                     }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[rgb(18,18,18)] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" />
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" 
+                                />
+                                <input
+                                    value={userData?.walletKey}
+                                    onChange={({ target: { value: walletKey } }) => {
+                                        setUserData({ ...userData, walletKey });
+                                    }}
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" 
+                                />
                             </div>
-                            <div className='flex justify-start w-full items-start flex-col mt-[40px]'>
+                            {/* <div className='flex justify-start w-full items-start flex-col mt-[40px]'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Tech stack</label>
                                 <input
                                     value={userData?.techStack}
                                     onChange={({ target: { value: techStack } }) => {
                                         setUserData({ ...userData, techStack });
                                     }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[rgb(18,18,18)] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Your Tech stack" />
-                            </div>
-                        </div>
-                        <div className='flex justify-start items-start flex-col'>
-                            <div className='flex justify-start w-full items-start flex-col'>
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Your Tech stack" />
+                            </div> */}
+                        {/* </div>
+                        <div className='flex justify-start items-start flex-col'> */}
+                            {/* <div className='flex justify-start w-full items-start flex-col'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Age</label>
                                 <input
                                     value={userData?.age}
                                     onChange={({ target: { value: age } }) => {
                                         setUserData({ ...userData, age });
                                     }}
-                                    type="number" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[rgb(18,18,18)] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter age" />
-                            </div>
-                            <div className='flex justify-center items-start w-full flex-col mt-[40px]'>
+                                    type="number" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter age" />
+                            </div> */}
+                            {/* <div className='flex justify-center items-start w-full flex-col mt-[40px]'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Discord ID</label>
                                 <input
                                     value={userData?.discordId}
                                     onChange={({ target: { value: discordId } }) => {
                                         setUserData({ ...userData, discordId });
                                     }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[rgb(18,18,18)] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter discord Id" />
-                            </div>
-                            <div className='flex justify-start w-full items-start flex-col mt-[40px]'>
-                                <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Wallet Key</label>
-                                <input
-                                    value={userData?.walletKey}
-                                    onChange={({ target: { value: walletKey } }) => {
-                                        setUserData({ ...userData, walletKey });
-                                    }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[rgb(18,18,18)] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" />
-                            </div>
-                            <div className='flex justify-start w-full items-start flex-col mt-[40px]'>
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter discord Id" />
+                            </div> */}
+                            
+                            {/* <div className='flex justify-start w-full items-start flex-col mt-[40px]'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Git Repo</label>
                                 <input
                                     value={userData?.githubLink}
                                     onChange={({ target: { value: githubLink } }) => {
                                         setUserData({ ...userData, githubLink });
                                     }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[rgb(18,18,18)] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Your Git Repo Link" />
-                            </div>
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Your Git Repo Link" />
+                            </div> */}
                         </div>
 
                     </div>

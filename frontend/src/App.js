@@ -55,7 +55,9 @@ import {
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
+// import ReactAudioPlayer from "react-audio-player";
 import { ALCHEMY_API_KEY, PROJECT_ID } from "./utils/env";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, optimism, arbitrum, base, zora, sepolia, goerli],
@@ -71,6 +73,9 @@ const connectors = connectorsForWallets([
       metaMaskWallet({ projectId, chains }), // Metamask
       ...(projectId ? [walletConnectWallet({ projectId, chains })] : []),
       ...(projectId ? [trustWallet({ projectId, chains })] : []),
+      // walletConnectWallet({ projectId, chains }),
+      // trustWallet({ projectId, chains }),
+      // Add more recommended wallets as needed
     ],
   },
   {
@@ -129,28 +134,22 @@ const App = () => {
   return (
     <>
       <NotificationContainer />
-
-      {/* <ReactAudioPlayer
-        src="/audio/mix.mp3"
-        autoPlay
-        type="audio/mp3"
-        title="audio"
-      /> */}
-
-      <WagmiConfig config={wagmiConfig}>
-        <RainbowKitProvider chains={chains} coolMode theme={darkTheme()}>
-          <BrowserRouter>
-            <Header />
-            <Routes>
-              <Route>
-                <Route path="*" element={<Layout />} />
-                <Route path="login" element={<LoginPage />} />
-                <Route path="signup" element={<SignupPage />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </RainbowKitProvider>
-      </WagmiConfig>
+      <GoogleOAuthProvider clientId='1025637144185-clr6angelpa8jse3in96q7ffghq5o6n3.apps.googleusercontent.com'>
+        <WagmiConfig config={wagmiConfig}>
+          <RainbowKitProvider chains={chains} coolMode theme={darkTheme()} modalSize="compact">
+            <BrowserRouter>
+              <Header />
+              <Routes>
+                <Route>
+                  <Route path="*" element={<Layout />} />
+                  <Route path="login" element={<LoginPage />} />
+                  <Route path="signup" element={<SignupPage />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </RainbowKitProvider>
+        </WagmiConfig>
+      </GoogleOAuthProvider>
     </>
   );
 };
@@ -158,13 +157,9 @@ const App = () => {
 export default App;
 
 const Layout = () => {
-  // const token = localStorage.getItem("token");
-  // if (token === null || token === "undefined") {
-  //   window.location.href = "/login";
-  // }
 
   return (
-    <div className="flex w-full dark:bg-[rgb(18,18,18)] bg-[rgb(249,250,251)]">
+    <div className="flex w-full dark:bg-[#0c1320] bg-[rgb(249,250,251)]">
       <Nav />
       <Routes>
         <Route path="bounties" element={<Dashboard />} />

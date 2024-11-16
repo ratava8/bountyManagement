@@ -18,7 +18,7 @@ function BountyRequest() {
         }
     }
     return (
-        <div className="w-full h-full dark:bg-[rgb(18,18,18)] bg-[rgb(249,250,251)] transition-all flex flex-col">
+        <div className="w-full h-full transition-all flex flex-col">
             <div className=' w-full flex justify-start mt-[80px] h-full'>
                 <AllProjects data={projects} fetchProjects={fetchProjects} viewMode />
             </div>

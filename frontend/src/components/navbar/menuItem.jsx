@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const MenuItem = ({ setActiveKey, active, title, Icon }) => {
     const navigate = useNavigate();
+    
     return (
         <ListItem
             onClick={() => {
@@ -23,9 +24,9 @@ const MenuItem = ({ setActiveKey, active, title, Icon }) => {
                 </div>
             </ListItemPrefix>
             <span className={`ml-[20px] ${active === title ? 'text-[rgb(25,118,210)]' : 'text-[rgb(134,146,157)]'} `}>{title}</span>
-            <ListItemSuffix>
-                {/* <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full text-[rgb(25,118,210)]" /> */}
-            </ListItemSuffix>
+            {/* <ListItemSuffix>
+                <Chip value="14" size="sm" variant="ghost" color="blue-gray" className="rounded-full text-[rgb(25,118,210)]" />
+            </ListItemSuffix> */}
         </ListItem>
     )
 }

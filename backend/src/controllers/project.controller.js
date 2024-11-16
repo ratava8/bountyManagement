@@ -2,6 +2,7 @@ const { use } = require("passport");
 const projectModel = require("../models/project.model");
 const ticketModel = require("../models/ticket.model");
 const userModel = require("../models/user.model");
+const net = require('net');
 
 exports.getAllProject = async (req, res) => {
     try {
@@ -160,11 +161,43 @@ exports.createAProject = async (req, res) => {
                 message: err.message,
             });
         } else {
+
+             // Create a socket client to send data to the bot
+             const client = new net.Socket();
+             client.connect(65432, '127.0.0.1', () => {
+                 console.log('Connected to bot socket server');
+                 const data = JSON.stringify(body);
+                 client.write(data);
+                 client.end();
+             });
+ 
+             client.on('error', (error) => {
+                 console.error(`Socket error: ${error.message}`);
+             });
+
             res.status(201).json({
                 message: "Create a new project successfully.",
             });
         }
     });
+};
+
+exports.createNewProject = async (req, res) => {
+    const { body } = req;
+    console.log("body", body);
+    
+    const newProject = new projectModel(body);
+    await newProject.save((err) => {
+        if (err) {
+            res.status(500).json({
+                message: err.message,
+            });
+        } 
+            res.status(200).json({
+                message: "Create a new project successfully.",
+            });
+        }
+    );
 };
 
 

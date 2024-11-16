@@ -9,6 +9,12 @@ const projectSchema = Schema({
     description: {
         type: String,
     },
+    price: {
+        type: String,
+    },
+    token: {
+        type: String,
+    },
     githubLink: {
         type: String,
     },

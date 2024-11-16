@@ -9,7 +9,7 @@ const HomePage = (props) => {
     }
     return (
 
-        <div id="home" className="w-full z-[2] dark:bg-[rgb(18,18,18)] transition-all h-screen">
+        <div id="home" className="w-full z-[2] dark:bg-[#0c1320] transition-all h-screen">
             <div className="flex justify-center items-center h-full">
                 <div className="w-full mx-auto main-visual flex flex-wrap items-center justify-center h-full">
                     <div className="w-full flex flex-row items-center justify-between main-visual">

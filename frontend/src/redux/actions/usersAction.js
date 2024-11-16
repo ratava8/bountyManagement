@@ -46,6 +46,23 @@ export const login = (payload) => async (dispatch) => {
     dispatch({ type: LOGIN_USERS_FAILURE, payload: error });
   }
 };
+
+export const loginWithWallet = (payload) => async (dispatch) => {
+  // dispatch({ type: LOGIN_USERS_REQUEST });
+  try {
+    const res = await axios.post(process.env.REACT_APP_API_BASE_URL + "/user/signinwithwallet", {
+      ...payload,
+    });    
+    axios.defaults.headers.common["Authorization"] = res.data.token;
+    localStorage.setItem("token", res.data.token);
+    NotificationManager.success('User logged in', 'Success')
+    dispatch({ type: LOGIN_USERS_SUCCESS, payload: res.data });
+  } catch (error) {
+    NotificationManager.error(error.response.data.msg, 'Error')
+    dispatch({ type: LOGIN_USERS_FAILURE, payload: error });
+  }
+};
+
 export const logOut = () => async (dispatch) => {
   dispatch({ type: LOGOUT });
 };

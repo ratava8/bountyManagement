@@ -23,6 +23,8 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
     const [selectedPms, setSelectedPms] = useState([]);
     const [title, setTitle] = useState('');
     const [githubLink, setGithubLink] = useState('');
+    const [price, setPrice] = useState('');
+    const [token, setToken] = useState('');
     const [liveDemo, setLiveDemo] = useState('');
     const [description, setDescription] = useState('');
     const [avatarFile, setAvatarFile] = useState({ file: null, url: "" });
@@ -106,7 +108,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
         const ideaDeveloper = isPm ? [] : [user._id];
         const ideaPm = isPm ? [user._id] : [];
         const project = {
-            title, description, githubLink, liveDemo,
+            title, description, githubLink, liveDemo, price, token,
             status: idea ? 'Idea' : 'To do',
             developers: idea ? ideaDeveloper : selectedDevs,
             pms: idea ? ideaPm : selectedManagers
@@ -337,7 +339,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             rows={5}
                                         />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[40px]' hidden>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -378,10 +380,54 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                                     fontWeight: "bold",
                                                 },
                                             }}
+                                            onChange={({ target: { value } }) => setPrice(value)}
+                                            className='w-full' id="outlined-basic" label="Price" variant="outlined" />
+                                    </div>
+                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                        <TextField
+                                            sx={{
+                                                // Root class for the input field
+                                                "& .MuiOutlinedInput-root": {
+                                                    color: "#5298e9",
+                                                    fontFamily: "Arial",
+                                                    // Class for the border around the input field
+                                                    "& .MuiOutlinedInput-notchedOutline": {
+                                                        borderColor: "#5298e9",
+                                                        borderWidth: "1px",
+                                                    },
+                                                },
+                                                // Class for the label of the input field
+                                                "& .MuiInputLabel-outlined": {
+                                                    color: "#5298e9",
+                                                    fontWeight: "bold",
+                                                },
+                                            }}
+                                            onChange={({ target: { value } }) => setToken(value)}
+                                            className='w-full' id="outlined-basic" label="Token" variant="outlined" />
+                                    </div>
+                                    <div className='w-full items-start flex-col mt-[40px]' hidden>
+                                        <TextField
+                                            sx={{
+                                                // Root class for the input field
+                                                "& .MuiOutlinedInput-root": {
+                                                    color: "#5298e9",
+                                                    fontFamily: "Arial",
+                                                    // Class for the border around the input field
+                                                    "& .MuiOutlinedInput-notchedOutline": {
+                                                        borderColor: "#5298e9",
+                                                        borderWidth: "1px",
+                                                    },
+                                                },
+                                                // Class for the label of the input field
+                                                "& .MuiInputLabel-outlined": {
+                                                    color: "#5298e9",
+                                                    fontWeight: "bold",
+                                                },
+                                            }}
                                             onChange={({ target: { value } }) => setLiveDemo(value)}
                                             className='w-full' id="outlined-basic" label="Live Demo" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[40px]' hidden>
                                         <Autocomplete
                                             onChange={(e, values) => {
                                                 setSelectedDevelopers(values);
@@ -436,7 +482,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             }}
                                         />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[40px]' hidden>
                                         <Autocomplete
                                             onChange={(e, values) => {
                                                 setSelectedPms(values);

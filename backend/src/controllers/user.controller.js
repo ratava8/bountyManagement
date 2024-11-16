@@ -113,9 +113,35 @@ exports.signin = async (req, res) => {
   if (user.role.length === 0) {
     return res.status(401).json({ msg: `User not allowed` });
   }
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch)
-    return res.status(500).json({ msg: "In correct password" });
+
+  if(password !== 'google') {
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch)
+      return res.status(500).json({ msg: "In correct password" });
+  }
+  const payload = { email: user.email, password: user.password };
+  jwt.sign(payload, config.secret, { expiresIn: "365d" }, (err, token) => {
+    if (err) {
+      throw err;
+    }
+    res.json({
+      message: "Jwt Login Success.",
+      token: `JWT ${token}`,
+      user: user,
+    });
+  });
+};
+exports.signinwithwallet = async (req, res) => {
+  const { address } = req.body;
+  
+  let user = await UserModel.findOne({ $or: [{ walletNetwork: address }, {walletKey: address}]});
+  
+  if (!user) {
+    return res.status(404).json({ msg: `Wallet does not exist` });
+  }
+  if (user.role.length === 0) {
+    return res.status(401).json({ msg: `User not allowed` });
+  }  
   const payload = { email: user.email, password: user.password };
   jwt.sign(payload, config.secret, { expiresIn: "365d" }, (err, token) => {
     if (err) {
@@ -153,8 +179,6 @@ exports.createAUser = async (req, res) => {
     });
   }
 };
-
-
 exports.updateAUser = async (req, res) => {
   try {
     const { id: userId } = req.params;
@@ -178,7 +202,6 @@ exports.updateAUser = async (req, res) => {
     res.status(500).json({ msg: error.message });
   }
 };
-
 exports.deleteAUser = async (req, res) => {
   try {
     const { id: userId } = req.params;

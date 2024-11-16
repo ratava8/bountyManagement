@@ -222,3 +222,40 @@ p {
   border-radius: 0px 10px 10px 0px;
   border: 1px solid gray;
 }
+
+.project-detail-dropdown .border {
+  border: none !important;
+}
+
+.project-detail-dropdown .bg-white {
+  background-color: #1e2738 !important;
+}
+
+.project-detail-dropdown .text-black {
+  color: white !important;
+}
+
+.project-detail-dropdown button {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar .bg-blue-100:focus {
+  background-color: #1e2738 !important;
+}
+
+.sidebar .bg-blue-100 {
+  background-color: #1e2738 !important;
+}
+
+.sidebar .bg-blue-100:active {
+  background-color: #1e2738 !important;
+}
+
+.sidebar .bg-blue-100 span {
+  color: white !important;
+}
+
+.sidebar .bg-blue-100 svg {
+  color: white !important;
+}

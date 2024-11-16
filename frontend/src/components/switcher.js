@@ -9,8 +9,12 @@ export default function Switcher(props) {
   const toggleDarkMode = checked => {
     setTheme(colorTheme);
     setDarkSide(checked);
+    console.log('12', checked);
+    
   };
 
+  console.log('16', colorTheme);
+  
   return (
     <>
       <div className=' m-auto flex justify-center items-center'>
