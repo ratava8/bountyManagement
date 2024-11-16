@@ -55,7 +55,6 @@ import {
 } from "wagmi/chains";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
-// import ReactAudioPlayer from "react-audio-player";
 import { ALCHEMY_API_KEY, PROJECT_ID } from "./utils/env";
 
 const { chains, publicClient } = configureChains(
@@ -72,9 +71,6 @@ const connectors = connectorsForWallets([
       metaMaskWallet({ projectId, chains }), // Metamask
       ...(projectId ? [walletConnectWallet({ projectId, chains })] : []),
       ...(projectId ? [trustWallet({ projectId, chains })] : []),
-      // walletConnectWallet({ projectId, chains }),
-      // trustWallet({ projectId, chains }),
-      // Add more recommended wallets as needed
     ],
   },
   {
