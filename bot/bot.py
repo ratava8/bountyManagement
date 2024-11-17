@@ -6,8 +6,8 @@ import socket
 import json
 
 # Replace 'YOUR_BOT_TOKEN_HERE' with your actual bot token
-TOKEN = 'MTMwNjM0ODgxMzY1Njc4OTExMg.GOgmHC.axmUE_DdH_VGtr3y97UaK6Q9Vx7MAqdMDilsiY'
-CHANNEL_ID = 1259800133323722857  # Replace with your Discord channel ID
+TOKEN = 'TOKEN'
+CHANNEL_ID = 'CHANNEL_ID'  # Replace with your Discord channel ID
 
 # Define intents
 intents = discord.Intents.default()

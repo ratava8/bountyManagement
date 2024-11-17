@@ -35,7 +35,8 @@ manage projects of CommuneAI**
 
 https://github.com/potter1990po/Com-management/assets/154459049/942e7774-479e-4966-ab14-323140bfbff6
 
-
+**You can also login with google, metamask and polkadot**
+https://drive.google.com/file/d/1F_MgQieOJBVzcHYb-Zhlc-kQxgyXxb8h/view?usp=drive_link
 ## Usage
  - For developers
     - **You can see all projects via All Project tag on Sidebar and propose to the projects what you want to work on**
@@ -58,8 +59,14 @@ https://github.com/potter1990po/Com-management/assets/154459049/596a5ffa-59a6-45
 
 https://github.com/potter1990po/Com-management/assets/154459049/3059561f-65e8-4cdc-9345-49c34162cc68
 
+## Create Bounty (Website and discord bot)
 
+  - **Admins can create new bounties on the site. This will create the exact same bounty on Discord.**
 
+  - **Conversely, on Discord, you can create new bounties using bots, and this will be reflected on the site at the same time.**
+
+  - **People can apply through the website or through the Discord bot.**
+https://drive.google.com/file/d/1QSM09fOoI7ZIxP_7yRnjEWteC5mCVYND/view?usp=drive_link
 ## Tickets
 
   - **You can see ticket page by clicking the title on project card.**
