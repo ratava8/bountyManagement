@@ -134,7 +134,13 @@ exports.signin = async (req, res) => {
 exports.signinwithwallet = async (req, res) => {
   const { address } = req.body;
   
-  let user = await UserModel.findOne({ $or: [{ walletNetwork: address }, {walletKey: address}]});
+  let user = await UserModel.findOne({ $or: [
+    {ethWallet: address }, 
+    {polkaWallet: address}, 
+    {solanaWallet: address},
+    {btcWallet: address},
+    {cosmosWallet: address}
+  ]});
   
   if (!user) {
     return res.status(404).json({ msg: `Wallet does not exist` });

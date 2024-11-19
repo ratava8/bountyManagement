@@ -72,12 +72,12 @@ function UserAvatar({ user }) {
     return (
         <>
             <div >
-                <img 
+                <img
                     // onMouseEnter={showDetail} 
                     // onMouseLeave={hiddenDetail} 
-                    onClick={handleModel} 
-                    className="rounded-[50%] cursor-pointer w-[40px] h-[40px] -ml-[15px]" 
-                    style={{ maxWidth: " max-content" }} 
+                    onClick={handleModel}
+                    className="rounded-[50%] cursor-pointer w-[40px] h-[40px] -ml-[15px]"
+                    style={{ maxWidth: " max-content" }}
                     src={(user?.avatar === 'default' || !user?.avatar) ? '/images/12.png' : `${process.env.REACT_APP_API_BASE_URL}/${user?.avatar}`} alt="" />
             </div>
             <div className='relative z-[100]'>
@@ -115,28 +115,52 @@ function UserAvatar({ user }) {
                                 </div> */}
 
 
-                                <div className="flex flex-col items-start justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
+                                {/* <div className="flex flex-col items-start justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
                                     <p className="text-sm text-gray-400 " style={{ marginBottom: "10px" }}>Tech Stack</p>
                                     <p className="text-[11px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
                                         {user.techStack ?? '...'}
                                     </p>
-                                </div>
-                                <div className="flex flex-col justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
+                                </div> */}
+                                {/* <div className="flex flex-col justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
                                     <p className="text-sm text-gray-400" style={{ marginBottom: "10px" }}>Age</p>
                                     <p className="text-[13px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
                                         {user.age ?? '...'}
                                     </p>
-                                </div>
-                                <div className="flex flex-col w-full justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
-                                    <p className="text-sm text-gray-400" style={{ marginBottom: "10px" }}>Wallet Key</p>
-                                    <p className="text-[11px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
-                                        {user.walletKey ?? '...'}
-                                    </p>
-                                </div>
+                                </div> */}
                                 <div className="flex flex-col justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
                                     <p className="text-sm text-gray-400" style={{ marginBottom: "10px" }}>Github repo link</p>
                                     <p className="text-[11px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
                                         {user.githubLink ?? '...'}
+                                    </p>
+                                </div>
+                                <div className="flex flex-col w-full justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
+                                    <p className="text-sm text-gray-400" style={{ marginBottom: "10px" }}>Ethereum Wallet Key</p>
+                                    <p className="text-[11px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                        {user.ethWallet ?? '...'}
+                                    </p>
+                                </div>
+                                <div className="flex flex-col w-full justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
+                                    <p className="text-sm text-gray-400" style={{ marginBottom: "10px" }}>Polkadot Wallet Key</p>
+                                    <p className="text-[11px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                        {user.polkaWallet ?? '...'}
+                                    </p>
+                                </div>
+                                <div className="flex flex-col w-full justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
+                                    <p className="text-sm text-gray-400" style={{ marginBottom: "10px" }}>Bitcoin Wallet Key</p>
+                                    <p className="text-[11px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                        {user.btcWallet ?? '...'}
+                                    </p>
+                                </div>
+                                <div className="flex flex-col w-full justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
+                                    <p className="text-sm text-gray-400" style={{ marginBottom: "10px" }}>Solana Wallet Key</p>
+                                    <p className="text-[11px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                        {user.solanaWallet ?? '...'}
+                                    </p>
+                                </div>
+                                <div className="flex flex-col w-full justify-center rounded-2xl bg-clip-border px-3 py-1 shadow-3xl shadow-shadow-500 dark:shadow-none">
+                                    <p className="text-sm text-gray-400" style={{ marginBottom: "10px" }}>Cosmos Wallet Key</p>
+                                    <p className="text-[11px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                        {user.cosmosWallet ?? '...'}
                                     </p>
                                 </div>
 
@@ -149,13 +173,13 @@ function UserAvatar({ user }) {
                     <div className='fixed w-screen h-screen top-0 left-0 bg-[#000] dark:bg-gray-500 opacity-40'>
                     </div>
                     <Zoom duration={500}>
-                        <div className='w-[600px] h-[600px] flex justify-start rounded-[30px] items-center top-[100px] z-[500] bg-[#eee] dark:bg-[#151e2d] shadow-md'>
+                        <div className='w-[600px] flex justify-start rounded-[30px] items-center top-[100px] z-[500] bg-[#eee] dark:bg-[#151e2d] shadow-md'>
                             <div className=' w-full'>
                                 <div className=' fixed top-[30px] right-[30px] cursor-pointer z-[100]' onClick={handleCancel}>
                                     <XCircleIcon className="h-10 w-10 text-gray-800 dark:text-white" />
                                 </div>
-                                <div className=' z-10 ml-auto mt-[50px]'>
-                                    <div className='justify-center m-auto flex group items-center h-[6rem] w-[6rem] overflow-y-hidden bg-[#e1e1e1] hover:bg-[#cbcbcb] transition-all dark:bg-[rgb(30,30,30)] dark:hover:bg-[rgb(33,33,33)] lg:h-[12rem] lg:w-[12rem] md:h-[9rem] md:w-[9rem] dark:border-[rgb(33,33,33)] border-[#ffffff] border-[5px] rounded-[50%]'>
+                                <div className=' z-10 ml-auto mt-[30px]'>
+                                    <div className='justify-center m-auto flex group items-center h-[6rem] w-[6rem] overflow-y-hidden bg-[#e1e1e1] hover:bg-[#cbcbcb] transition-all dark:bg-[rgb(30,30,30)] dark:hover:bg-[rgb(33,33,33)] lg:h-[8rem] lg:w-[8rem] md:h-[8rem] md:w-[8rem] dark:border-[rgb(33,33,33)] border-[#ffffff] border-[5px] rounded-[50%]'>
                                         {/* {user.avatar ?
                                             <span className='w-full h-full flex bg-contain bg-no-repeat bg-center overflow-y-hidden'>
                                                 <img className='w-full h-fit' src={(user?.avatar === 'default' || !user?.avatar) ? '/images/12.png' : `${process.env.REACT_APP_API_BASE_URL}/${user?.avatar}`} alt="" />
@@ -171,7 +195,7 @@ function UserAvatar({ user }) {
 
                                 <div className="flex flex-col justify-center items-center" style={{ fontFamily: 'Smack' }}>
                                     <div className="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-clip-border shadow-3xl shadow-shadow-500 dark:text-white dark:!shadow-none p-3">
-                                        <div className="grid md:grid-cols-2 gap-2 px-2 w-full mt-[50px]">
+                                        <div className="grid md:grid-cols-2 gap-2 px-2 w-full my-[20px]">
                                             <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
                                                 <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Email</p>
                                                 <p className="text-[13px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
@@ -193,31 +217,10 @@ function UserAvatar({ user }) {
                                                 </p>
                                             </div>
 
-                                            {/* <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                                            <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
                                                 <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Discord ID</p>
                                                 <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
                                                     {user.discordId ?? '...'}
-                                                </p>
-                                            </div> */}
-
-                                            <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
-                                                <p className="text-sm text-gray-600 dark:text-white " style={{ marginBottom: "10px" }}>Ethereum Wallet</p>
-                                                <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
-                                                    {user.walletNetwork ?? '...'}
-                                                </p>
-                                            </div>
-
-                                            <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
-                                                <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Polkadot Wallet</p>
-                                                <h1 className="text-[15px] whitespace-pre font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
-                                                    {user.walletKey ? renderWalletKey(user.walletKey) : '...'}
-                                                </h1>
-                                            </div>
-
-                                            {/* <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
-                                                <p className="text-sm text-gray-600 dark:text-white " style={{ marginBottom: "10px" }}>Tech Stack</p>
-                                                <p className="text-[13px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
-                                                    {user.techStack ?? '...'}
                                                 </p>
                                             </div>
 
@@ -226,8 +229,49 @@ function UserAvatar({ user }) {
                                                 <p className="text-[10px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
                                                     {<Link target='_blank' className='text-navy-700 dark:text-gray-200' to={user.githubLink}> {user.githubLink} </Link> ?? '...'}
                                                 </p>
-                                            </div> */}
+                                            </div>
 
+                                            <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                                                <p className="text-sm text-gray-600 dark:text-white " style={{ marginBottom: "10px" }}>Ethereum Wallet</p>
+                                                <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                                    {user.ethWallet ?? '...'}
+                                                </p>
+                                            </div>
+
+                                            <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                                                <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Polkadot Wallet</p>
+                                                <h1 className="text-[15px] whitespace-pre font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                                    {user.polkaWallet ?? '...'}
+                                                </h1>
+                                            </div>
+
+                                            <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                                                <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Bitcoin Wallet</p>
+                                                <h1 className="text-[15px] whitespace-pre font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                                    {user.btcWallet ?? '...'}
+                                                </h1>
+                                            </div>
+
+                                            <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                                                <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Solana Wallet</p>
+                                                <h1 className="text-[15px] whitespace-pre font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                                    {user.solanaWallet ?? '...'}
+                                                </h1>
+                                            </div>
+
+                                            <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                                                <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Cosmos Wallet</p>
+                                                <h1 className="text-[15px] whitespace-pre font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                                    {user.cosmosWallet ?? '...'}
+                                                </h1>
+                                            </div>
+
+                                            {/* <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                                                <p className="text-sm text-gray-600 dark:text-white " style={{ marginBottom: "10px" }}>Tech Stack</p>
+                                                <p className="text-[13px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                                                    {user.techStack ?? '...'}
+                                                </p>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>

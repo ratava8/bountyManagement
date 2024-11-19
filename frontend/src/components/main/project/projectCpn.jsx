@@ -564,7 +564,7 @@ function ProjectCpn() {
                                             }}
                                         />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[40px] hidden'>
                                         <TextField
                                             disabled={isDeveloper}
 
@@ -594,7 +594,7 @@ function ProjectCpn() {
                                     </div>
                                     {/* {!(isManager || isAdmin) && */}
                                     <>
-                                        <div className='w-full items-start flex-col mt-[40px]'>
+                                        <div className='w-full items-start flex-col mt-[40px] hidden'>
                                             <TextField
                                                 onChange={({ target: { value } }) => setLiveDemo(value)}
                                                 defaultValue={liveDemo}

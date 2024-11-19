@@ -214,7 +214,7 @@ const Header = () => {
             style={{ display: "flex" }}
             className="flex items-center justify-center ml-[1px] gap-[25px]"
           >
-            <ConnectButton.Custom>
+            {/* <ConnectButton.Custom>
               {({
                 account,
                 chain,
@@ -263,15 +263,15 @@ const Header = () => {
                           <div
                             className="align-middle select-none cursor-pointer font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-[10px] px-3 rounded-lg bg-[#2f3540] text-[rgb(18,18,18)] dark:text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] flex items-center gap-2"
                             onClick={openAccountModal} style={{ fontFamily: 'Smack' }}>
-                            {/* <span className=" text-[15px] uppercase text-[rgb(18,18,18)] dark:text-white">
+                            <span className=" text-[15px] uppercase text-[rgb(18,18,18)] dark:text-white">
                               {account.displayBalance
                                 ? account.displayBalance
                                 : ''}
-                            </span> */}
+                            </span>
                             <span className=" text-[15px] first-letter:uppercase lowercase text-[rgb(18,18,18)] dark:text-white">
                               {account.displayName}
                             </span>
-                            {/* <svg className="h-5 w-5 text-[rgb(18,18,18)] dark:text-white" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <polyline points="6 9 12 15 18 9" /></svg> */}
+                            <svg className="h-5 w-5 text-[rgb(18,18,18)] dark:text-white" width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z" />  <polyline points="6 9 12 15 18 9" /></svg>
                           </div>
                         </div>
                       );
@@ -279,7 +279,7 @@ const Header = () => {
                   </div>
                 );
               }}
-            </ConnectButton.Custom>
+            </ConnectButton.Custom> */}
             <PolkadotWalletButton />
           </div>
         </nav>

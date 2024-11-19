@@ -176,7 +176,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
             <div className='flex justify-center'>
                 {/* <input className='search-input' onChange={({ target: { value } }) => setKeyword(value)} placeholder='Input project title, descriptin' />
                 <button className='search-button' onClick={handleSearch}>Search</button> */}
-                <div className=' dark:bg-[rgb(27,27,27)] items-center justify-between w-[80%] flex rounded-full shadow-lg p-2 mb-3 sticky' style={{ marginTop: '5px' }}>
+                <div className=' dark:bg-[#151e2d] items-center justify-between w-[80%] flex rounded-full shadow-lg p-2 mb-3 sticky' style={{ marginTop: '5px' }}>
                     <div>
                         <div onClick={handleBack} className='p-2 mr-1 rounded-full hover:bg-white dark:hover:bg-[rgb(75,85,99)] cursor-pointer'>
 
@@ -187,7 +187,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                         </div>
                     </div>
 
-                    <input value={keyword} onChange={({ target: { value } }) => setKeyword(value)} className='font-bold rounded-full w-full py-[0.65rem] pl-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-[rgb(50,50,50)] leading-tight focus:outline-none focus:shadow-outline lg:text-sm text-xs' type='text' placeholder='Input bounty title, description' />
+                    <input value={keyword} onChange={({ target: { value } }) => setKeyword(value)} className='font-bold rounded-full w-full py-[0.65rem] pl-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-[#1e2738] leading-tight focus:outline-none focus:shadow-outline lg:text-sm text-xs' type='text' placeholder='Input bounty title, description' />
 
                     <div className='bg-gray-600 p-2 hover:bg-blue-400 cursor-pointer mx-2 rounded-full' onClick={() => handleSearch(keyword, activeStatus)}>
 
@@ -218,23 +218,43 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                 <div className={`text-[20px] text-[#909090] ${visibleProjects.length > 0 ? '' : 'invisible'}`}>
                     {`${visibleProjects.length} project${visibleProjects.length === 1 ? '' : 's'} `}
                 </div>
-                {(!user?.role.some((aRole) => aRole === 'Administrator') && !viewMode) && isLogged && <button
-                    className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-[12px] px-6 rounded-lg bg-gray-900 dark:bg-[rgb(36,36,36)] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-                    type="button"
-                    data-ripple-light="true"
-                    style={{ fontFamily: "Smack" }}
-                    onClick={handleNewIdea}
-                >
-                    New Bounty</button>
+                {(!user?.role.some((aRole) => aRole === 'Administrator') && !viewMode) && isLogged && 
+                // <button
+                //     className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-[12px] px-6 rounded-lg bg-gray-900 dark:bg-[rgb(36,36,36)] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                //     type="button"
+                //     data-ripple-light="true"
+                //     style={{ fontFamily: "Smack" }}
+                //     onClick={handleNewIdea}
+                // >
+                //     New Bounty
+                // </button>
+
+                <div onClick={handleNewIdea} style={{ fontFamily: 'Might', width: '200px', fontSize: '18px', transition: '0.1s' }} className="relative rounded-[15px]  cursor-pointer group font-medium no-underline flex p-2 text-white items-center justify-center content-center focus:outline-none">
+                    <span className="absolute top-0 left-0 w-full h-full rounded-[15px] opacity-50 filter blur-sm bg-gradient-to-br from-[#256fc4] to-[#256fc4]"  ></span>
+                    <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#256fc4] to-[#256fc4]"></span>
+                    <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#256fc4] to-[#256fc4]"></span>
+                    <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#256fc4] from-[#256fc4]"></span>
+                    <span className="relative">New Bounty</span>
+                </div>
+
                 }
-                {user?.role.some((aRole) => aRole === 'Administrator') && isDashboard && isLogged && <button
-                    className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-[12px] px-6 rounded-lg bg-gray-900 dark:bg-[rgb(36,36,36)] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-                    type="button"
-                    data-ripple-light="true"
-                    style={{ fontFamily: "Smack" }}
-                    onClick={handleNew}
-                >
-                    New Bounty</button>
+                {user?.role.some((aRole) => aRole === 'Administrator') && isDashboard && isLogged && 
+                // <button
+                //     className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-[12px] px-6 rounded-lg bg-gray-900 dark:bg-[rgb(36,36,36)] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                //     type="button"
+                //     data-ripple-light="true"
+                //     style={{ fontFamily: "Smack" }}
+                //     onClick={handleNew}
+                // >
+                //     New Bounty
+                // </button>
+                <div onClick={handleNew} style={{ fontFamily: 'Might', width: '200px', fontSize: '18px', transition: '0.1s' }} className="relative rounded-[15px]  cursor-pointer group font-medium no-underline flex p-2 text-white items-center justify-center content-center focus:outline-none">
+                    <span className="absolute top-0 left-0 w-full h-full rounded-[15px] opacity-50 filter blur-sm bg-gradient-to-br from-[#256fc4] to-[#256fc4]"  ></span>
+                    <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#256fc4] to-[#256fc4]"></span>
+                    <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-[#256fc4] to-[#256fc4]"></span>
+                    <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-[#256fc4] from-[#256fc4]"></span>
+                    <span className="relative">New Bounty</span>
+                </div>
                 }
             </div>
 
@@ -244,13 +264,13 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                     <img className="w-[80px] mt-[-20px]" src={loading} alt="" />
                 </div> :
                     visibleProjects.length === 0 ? <div className='w-full flex items-center justify-center text-center text-[20px] text-[#909090]'>
-                        <svg style={{ marginTop: '3px' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <svg style={{ marginTop: '3px' }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
                         <div className='ml-[10px]'> No Bounties</div>
                     </div> :
-                        visibleProjects?.map((aProject) => (
-                            <Projects {...aProject} fetchProjects={fetchProjects} />
+                        visibleProjects?.map((aProject, idx) => (
+                            <Projects {...aProject} fetchProjects={fetchProjects} key={idx}/>
                         ))}
             </div>
             {openNewModal ?
@@ -258,12 +278,12 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                     <div className=' fixed w-screen h-screen top-0 left-0 bg-[#000] dark:bg-gray-500 opacity-40'>
                     </div>
                     <Zoom duration={500}>
-                        <div className='fixed w-[1000px] rounded-[30px] h-auto flex justify-start items-center top-[0px] z-[111] bg-[#eee] dark:bg-[rgb(36,36,36)] shadow-md'>
+                        <div className='fixed w-[600px] rounded-[30px] h-auto flex justify-start items-center top-[100px] z-[111] bg-[#eee] dark:bg-[#151e2d] shadow-md'>
 
-                            <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[100px]' style={{ fontFamily: 'Smack' }}>
+                            <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[50px]' style={{ fontFamily: 'Smack' }}>
                                 {/* <div className=' flex justify-center items-center  md:justify-start md:items-start text-[rgb(18,18,18)] w-full dark:text-white text-[30px] mt-[30px] lg:mt-[-30px]'>Profile details</div> */}
                                 <div className=' fixed top-[30px] right-[30px] cursor-pointer z-[99]' onClick={handleNewCancel}>
-                                    <XCircleIcon class="h-10 w-10 text-gray-800 dark:text-white" />
+                                    <XCircleIcon className="h-10 w-10 text-gray-800 dark:text-white" />
                                 </div>
                                 <div className='flex justify-center items-center w-full'>
                                     <div className='flex justify-center items-center w-full'>
@@ -288,7 +308,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                         </div>
                                     </div>
                                 </div>
-                                <div className='justify-center items-center mt-[50px] w-full md:gap-[100px] gap-[50px] lg:flex-row flex-col'>
+                                <div className='justify-center items-center mt-[30px] w-full md:gap-[100px] gap-[50px] lg:flex-row flex-col'>
                                     <div className='w-full items-start flex-col'>
                                         <TextField
                                             sx={{
@@ -311,7 +331,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             onChange={({ target: { value } }) => setTitle(value)}
                                             className='w-full' id="outlined-basic" label="Title" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[30px]'>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -339,7 +359,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             rows={5}
                                         />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]' hidden>
+                                    <div className='w-full items-start flex-col mt-[30px]' >
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -361,7 +381,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             onChange={({ target: { value } }) => setGithubLink(value)}
                                             className='w-full' id="outlined-basic" label="Github LInk" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[30px]'>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -383,7 +403,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             onChange={({ target: { value } }) => setPrice(value)}
                                             className='w-full' id="outlined-basic" label="Price" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[30px]'>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -405,7 +425,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             onChange={({ target: { value } }) => setToken(value)}
                                             className='w-full' id="outlined-basic" label="Token" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]' hidden>
+                                    <div className='w-full items-start flex-col mt-[30px]' hidden>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -427,7 +447,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             onChange={({ target: { value } }) => setLiveDemo(value)}
                                             className='w-full' id="outlined-basic" label="Live Demo" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]' hidden>
+                                    <div className='w-full items-start flex-col mt-[30px]' hidden>
                                         <Autocomplete
                                             onChange={(e, values) => {
                                                 setSelectedDevelopers(values);
@@ -482,7 +502,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             }}
                                         />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]' hidden>
+                                    <div className='w-full items-start flex-col mt-[30px]' hidden>
                                         <Autocomplete
                                             onChange={(e, values) => {
                                                 setSelectedPms(values);
@@ -540,7 +560,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
 
                                 </div>
 
-                                <div className=' flex justify-center items-center w-full mt-[50px] mb-[40px]'>
+                                <div className=' flex justify-center items-center w-full mt-[30px] mb-[30px]'>
                                     <div onClick={() => createProject(false)} style={{ fontFamily: 'Might', width: '200px', fontSize: '18px', transition: '0.1s' }} className="relative rounded-[15px]  cursor-pointer group font-medium no-underline flex p-2 text-white items-center justify-center content-center focus:outline-none">
                                         <span className="absolute top-0 left-0 w-full h-full rounded-[15px] opacity-50 filter blur-sm bg-gradient-to-br from-[#256fc4] to-[#256fc4]"  ></span>
                                         <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#256fc4] to-[#256fc4]"></span>
@@ -564,7 +584,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                             <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[100px]' style={{ fontFamily: 'Smack' }}>
                                 {/* <div className=' flex justify-center items-center  md:justify-start md:items-start text-[rgb(18,18,18)] w-full dark:text-white text-[30px] mt-[30px] lg:mt-[-30px]'>Profile details</div> */}
                                 <div className=' fixed top-[30px] right-[30px] cursor-pointer z-[99]' onClick={handleNewIdeaCancel}>
-                                    <XCircleIcon class="h-10 w-10 text-gray-800 dark:text-white" />
+                                    <XCircleIcon className="h-10 w-10 text-gray-800 dark:text-white" />
                                 </div>
                                 <div className='flex justify-center items-center w-full'>
                                     <div className='flex justify-center items-center w-full'>
@@ -589,7 +609,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                         </div>
                                     </div>
                                 </div>
-                                <div className='justify-center items-center mt-[50px] w-full md:gap-[100px] gap-[50px] lg:flex-row flex-col'>
+                                <div className='justify-center items-center mt-[30px] w-full md:gap-[100px] gap-[50px] lg:flex-row flex-col'>
                                     <div className='w-full items-start flex-col'>
                                         <TextField
                                             sx={{
@@ -612,7 +632,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                                             onChange={({ target: { value } }) => setTitle(value)}
                                             className='w-full' id="outlined-basic" label="Title" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[30px]'>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -636,7 +656,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
 
                                             className='w-full' id="outlined-basic" label="Github LInk" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[30px]'>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -660,7 +680,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
 
                                             className='w-full' id="outlined-basic" label="Live Demo" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[30px]'>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
@@ -691,7 +711,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
 
                                 </div>
 
-                                <div className=' flex justify-center items-center w-full mt-[50px] mb-[40px]'>
+                                <div className=' flex justify-center items-center w-full mt-[30px] mb-[30px]'>
                                     <div onClick={() => createProject(true)} style={{ fontFamily: 'Might', width: '300px', fontSize: '18px', transition: '0.1s' }} className="relative rounded-[15px]  cursor-pointer group font-medium no-underline flex p-2 text-white items-center justify-center content-center focus:outline-none">
                                         <span className="absolute top-0 left-0 w-full h-full rounded-[15px] opacity-50 filter blur-sm bg-gradient-to-br from-[#256fc4] to-[#256fc4]"  ></span>
                                         <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#256fc4] to-[#256fc4]"></span>

@@ -22,6 +22,8 @@ export function Projects(project) {
     const [description, setDescription] = useState(project.description);
     const [githubLink, setGithubLink] = useState(project.githubLink);
     const [liveDemo, setLiveDemo] = useState(project.liveDemo);
+    const [price, setPrice] = useState(project.price);
+    const [token, setToken] = useState(project.token);
     const [avatarFile, setAvatarFile] = useState({ file: null, url: "" });
 
     const [status, setStatus] = useState(project.status);
@@ -329,8 +331,8 @@ export function Projects(project) {
                         </div>
                     </div>
                     <div className=" h-[25px] mt-[10px] dark:text-gray-200 flex justify-start items-center gap-[10px]">
-                        <Label color={"warning"}>Site</Label>
-                        <span className="text-[10px] mt-[4px] text-gray-500 dark:text-gray-400">{project.liveDemo?.length > 0 ? <Link target="_blank" className="text-gray-500 dark:text-gray-400" to={project.liveDemo}> {project.liveDemo} </Link> : "..."}</span>
+                        <Label color={"warning"}>Price</Label>
+                        <span className="text-[15px] mt-[4px] text-gray-500 dark:text-gray-400">{project.price?.length > 0 ? <Link target="_blank" className="text-gray-500 dark:text-gray-400" > {project.price}{`(${project.token})`} </Link> : "..."}</span>
                     </div>
                     <div className=" h-[25px] mt-[5px] dark:text-gray-200 flex justify-start items-center gap-[10px]">
                         <Label color={"error"}>Repo</Label>
@@ -551,9 +553,9 @@ export function Projects(project) {
                                                 },
                                             }}
                                             onChange={({ target: { value } }) => setLiveDemo(value)}
-                                            defaultValue={project.liveDemo}
+                                            defaultValue={project.price}
 
-                                            className='w-full' id="outlined-basic" label="Live Demo" variant="outlined" />
+                                            className='w-full' id="outlined-basic" label="Price" variant="outlined" />
                                     </div>
                                     <div className='w-full items-start flex-col mt-[40px]'>
                                         <TextField

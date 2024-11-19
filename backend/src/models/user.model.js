@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
       type: String,
     }
     ],
-    default: []
+    default: ['Developer']
   },
   discordName: {
     type: String,
@@ -30,10 +30,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: 'default'
   },
-  walletNetwork: {
+  ethWallet: {
     type: String,
   },
-  walletKey: {
+  polkaWallet: {
+    type: String,
+  },
+  solanaWallet: {
+    type: String,
+  },
+  btcWallet: {
+    type: String,
+  },
+  cosmosWallet: {
     type: String,
   },
   techStack: {

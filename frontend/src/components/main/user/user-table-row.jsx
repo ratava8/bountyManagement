@@ -35,8 +35,11 @@ export default function UserTableRow({
   githubLink,
   selected,
   discordId,
-  walletKey,
-  walletNetwork
+  ethWallet,
+  polkaWallet,
+  btcWallet,
+  solanaWallet,
+  cosmosWallet,
 }) {
 
 
@@ -140,44 +143,44 @@ export default function UserTableRow({
 
   return (
     <>
-        <TableRow hover tabIndex={-1} project="checkbox" selected={selected} >
-          <TableCell padding="checkbox">
-          </TableCell>
+      <TableRow hover tabIndex={-1} project="checkbox" selected={selected} >
+        <TableCell padding="checkbox">
+        </TableCell>
 
-          <TableCell component="th" scope="row" padding="none" className=' dark:text-gray-200' style={{ fontFamily: 'Smack' }}>
-            <Stack direction="row" alignItems="center" spacing={2}>
-              {/* <img className='w-[50px] rounded-[50%]' alt={discordName} src={`${process.env.REACT_APP_API_BASE_URL}/${avatar}`} /> */}
-              <img onClick={handleDetail} className='w-[50px] h-[50px] rounded-[50%] cursor-pointer' src={(avatar === 'default' || !avatar) ? '/images/12.png' : `${process.env.REACT_APP_API_BASE_URL}/${avatar}`} alt="" />
-              {/* <UserAvatar user={user}/> */}
-              <Typography variant="subtitle2" noWrap style={{ fontFamily: 'Smack' }}>
-                {discordName}
-              </Typography>
-            </Stack>
-          </TableCell>
+        <TableCell component="th" scope="row" padding="none" className=' dark:text-gray-200' style={{ fontFamily: 'Smack' }}>
+          <Stack direction="row" alignItems="center" spacing={2}>
+            {/* <img className='w-[50px] rounded-[50%]' alt={discordName} src={`${process.env.REACT_APP_API_BASE_URL}/${avatar}`} /> */}
+            <img onClick={handleDetail} className='w-[50px] h-[50px] rounded-[50%] cursor-pointer' src={(avatar === 'default' || !avatar) ? '/images/12.png' : `${process.env.REACT_APP_API_BASE_URL}/${avatar}`} alt="" />
+            {/* <UserAvatar user={user}/> */}
+            <Typography variant="subtitle2" noWrap style={{ fontFamily: 'Smack' }}>
+              {discordName}
+            </Typography>
+          </Stack>
+        </TableCell>
 
-          <TableCell className=' dark:text-gray-200' style={{ fontFamily: 'Smack' }}>{email}</TableCell>
+        <TableCell className=' dark:text-gray-200' style={{ fontFamily: 'Smack' }}>{email}</TableCell>
 
-          {/* <TableCell className=' dark:text-gray-200' style={{ fontFamily: 'Smack' }}>{age}</TableCell>
+        {/* <TableCell className=' dark:text-gray-200' style={{ fontFamily: 'Smack' }}>{age}</TableCell>
 
         <TableCell align="center" className=' dark:text-gray-200' style={{ fontFamily: 'Smack' }}>{techStack}</TableCell> */}
 
-          <TableCell>
-            {role.map((aRole, idx) =>
-              <div key={idx} className='m-[3px]'>
-                <Label color={aRole === 'Developer' ? 'success' : 'error'}>{aRole}</Label>
-              </div>
-            )}
-          </TableCell>
-          <TableCell className=' dark:text-gray-200'>
-            <Link to={githubLink} target='_blank' className='dark:text-gray-200'>{githubLink}</Link>
-          </TableCell>
+        <TableCell>
+          {role.map((aRole, idx) =>
+            <div key={idx} className='m-[3px]'>
+              <Label color={aRole === 'Developer' ? 'success' : 'error'}>{aRole}</Label>
+            </div>
+          )}
+        </TableCell>
+        <TableCell className=' dark:text-gray-200'>
+          <Link to={githubLink} target='_blank' className='dark:text-gray-200'>{githubLink}</Link>
+        </TableCell>
 
-          {user?.role.some((aRole) => aRole === 'Administrator') && < TableCell align="right">
-            <IconButton onClick={handleOpenMenu} className=' dark:text-gray-200'>
-              <Iconify icon="eva:more-vertical-fill" />
-            </IconButton>
-          </TableCell>}
-        </TableRow >
+        {user?.role.some((aRole) => aRole === 'Administrator') && < TableCell align="right">
+          <IconButton onClick={handleOpenMenu} className=' dark:text-gray-200'>
+            <Iconify icon="eva:more-vertical-fill" />
+          </IconButton>
+        </TableCell>}
+      </TableRow >
 
       <Popover
         open={!!open}
@@ -205,13 +208,13 @@ export default function UserTableRow({
           <div className=' fixed w-screen h-screen top-0 left-0 bg-[#000] dark:bg-gray-500 opacity-40'>
           </div>
           <Zoom duration={500}>
-            <div className='w-[600px] h-[700px] flex justify-start rounded-[30px] items-center top-[100px] z-50 bg-[#eee] dark:bg-[#151e2d] shadow-md'>
+            <div className='w-[600px] flex justify-start rounded-[30px] items-center top-[100px] z-50 bg-[#eee] dark:bg-[#151e2d] shadow-md'>
               <div className=' w-full'>
                 <div className=' fixed top-[30px] right-[30px] cursor-pointer z-[100]' onClick={handleCancel}>
                   <XCircleIcon className="h-10 w-10 text-gray-800 dark:text-white" />
                 </div>
-                <div className=' z-10 ml-auto mt-[50px]'>
-                  <div className='justify-center m-auto flex group items-center h-[4rem] w-[4rem] overflow-y-hidden bg-[#e1e1e1] hover:bg-[#cbcbcb] transition-all dark:bg-[rgb(30,30,30)] dark:hover:bg-[rgb(33,33,33)] lg:h-[12rem] lg:w-[12rem] md:h-[9rem] md:w-[9rem] dark:border-[rgb(33,33,33)] border-[#ffffff] border-[5px] rounded-[50%]'>
+                <div className='z-10 ml-auto mt-[30px]'>
+                  <div className='justify-center m-auto flex group items-center h-[4rem] w-[4rem] overflow-y-hidden bg-[#e1e1e1] hover:bg-[#cbcbcb] transition-all dark:bg-[rgb(30,30,30)] dark:hover:bg-[rgb(33,33,33)] lg:h-[8rem] lg:w-[8rem] md:h-[8rem] md:w-[8rem] dark:border-[rgb(33,33,33)] border-[#ffffff] border-[5px] rounded-[50%]'>
                     {/* {avatarFile ?
                       <span className='w-full h-full flex bg-contain bg-no-repeat bg-center overflow-y-hidden'>
                         <img className='w-full h-fit' src={avatar} alt="" />
@@ -227,7 +230,7 @@ export default function UserTableRow({
 
                 <div className="flex flex-col justify-center items-center" style={{ fontFamily: 'Smack' }}>
                   <div className="relative flex flex-col items-center rounded-[20px] w-[700px] max-w-[95%] mx-auto bg-clip-border shadow-3xl shadow-shadow-500 dark:text-white dark:!shadow-none p-3">
-                    <div className="grid md:grid-cols-2 gap-2 px-2 w-full mt-[50px]">
+                    <div className="grid md:grid-cols-2 gap-2 px-2 w-full my-[20px]">
                       <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
                         <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Email</p>
                         <p className="text-[13px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
@@ -249,31 +252,10 @@ export default function UserTableRow({
                         </p>
                       </div>
 
-                      {/* <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                      <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
                         <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Discord ID</p>
                         <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
                           {discordId ?? "..."}
-                        </p>
-                      </div> */}
-
-                      <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
-                        <p className="text-sm text-gray-600 dark:text-white " style={{ marginBottom: "10px" }}>Ethereum Wallet</p>
-                        <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
-                          {walletNetwork ?? "..."}
-                        </p>
-                      </div>
-
-                      <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
-                        <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Polkadot Wallet</p>
-                        <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
-                          {walletKey ? renderWalletKey(walletKey) : '...'}
-                        </p>
-                      </div>
-
-                      {/* <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
-                        <p className="text-sm text-gray-600 dark:text-white " style={{ marginBottom: "10px" }}>Tech Stack</p>
-                        <p className="text-[13px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
-                          {techStack ?? "..."}
                         </p>
                       </div>
 
@@ -281,6 +263,48 @@ export default function UserTableRow({
                         <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Github repo link</p>
                         <p className="text-[10px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
                           <Link target='_blank' className='text-navy-700 dark:text-gray-200' to={githubLink}> {githubLink} </Link>
+                        </p>
+                      </div>
+
+                      <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                        <p className="text-sm text-gray-600 dark:text-white " style={{ marginBottom: "10px" }}>Ethereum Wallet</p>
+                        <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                          {ethWallet ? ethWallet : '...'}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                        <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Polkadot Wallet</p>
+                        <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                          {polkaWallet ? polkaWallet : '...'}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                        <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Bitcoin Wallet</p>
+                        <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                          {btcWallet ? btcWallet : '...'}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                        <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Solana Wallet</p>
+                        <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                          {solanaWallet ? solanaWallet : '...'}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-col justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                        <p className="text-sm text-gray-600 dark:text-white" style={{ marginBottom: "10px" }}>Cosmos Wallet</p>
+                        <p className="text-base font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                          {cosmosWallet ? cosmosWallet : '...'}
+                        </p>
+                      </div>
+
+                      {/* <div className="flex flex-col items-start justify-center rounded-2xl bg-[#fff] bg-clip-border px-3 py-4 shadow-3xl shadow-shadow-500 dark:bg-[#1e2738] dark:shadow-none">
+                        <p className="text-sm text-gray-600 dark:text-white " style={{ marginBottom: "10px" }}>Tech Stack</p>
+                        <p className="text-[13px] font-medium text-navy-700 dark:text-gray-200" style={{ marginBottom: "0" }}>
+                          {techStack ?? "..."}
                         </p>
                       </div> */}
 
@@ -291,7 +315,7 @@ export default function UserTableRow({
                         <FormControlLabel control={<Checkbox defaultChecked={role.some((aRole => aRole === 'Project Manager'))} onChange={(e) => handleRoleChange('Project Manager')} />} label="Project Manager" />
                         <FormControlLabel control={<Checkbox defaultChecked={role.some((aRole => aRole === 'Administrator'))} onChange={(e) => handleRoleChange('Administrator')} />} label="Administrator" />
                       </div>,
-                      <div className=' flex justify-center items-center w-full mt-[50px] mb-[40px]'>
+                      <div className=' flex justify-center items-center w-full mt-[20px] mb-[20px]'>
                         <div onClick={handleSaveUser} style={{ fontFamily: 'Might', width: '200px', fontSize: '18px', transition: '0.1s' }} className="relative rounded-[15px]  cursor-pointer group font-medium no-underline flex p-2 text-white items-center justify-center content-center focus:outline-none">
                           <span className="absolute top-0 left-0 w-full h-full rounded-[15px] opacity-50 filter blur-sm bg-gradient-to-br from-[#256fc4] to-[#256fc4]"  ></span>
                           <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#256fc4] to-[#256fc4]"></span>

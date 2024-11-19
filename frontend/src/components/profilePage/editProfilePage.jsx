@@ -63,7 +63,7 @@ const EditProfilePage = () => {
     };
 
     return (
-        <div className="w-full md:h-screen" >
+        <div className="w-full" >
             <div className=' flex w-full justify-center items-center pt-[120px] mb-[60px]'>
                 <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[100px]' style={{ fontFamily: 'Smack' }}>
                     {/* <div className=' flex justify-center items-center  md:justify-start md:items-start text-[#1e2738] w-full dark:text-white text-[30px] mt-[30px] lg:mt-[-30px]'>Profile details</div> */}
@@ -111,15 +111,34 @@ const EditProfilePage = () => {
                                     }}
                                     type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter discordname" />
                             </div>
+                            <div className='flex justify-center items-start w-full flex-col'>
+                                <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Discord ID</label>
+                                <input
+                                    value={userData?.discordId}
+                                    onChange={({ target: { value: discordId } }) => {
+                                        setUserData({ ...userData, discordId });
+                                    }}
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter discord Id" />
+                            </div>
+                            
+                            <div className='flex justify-start w-full items-start flex-col'>
+                                <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Git Repo</label>
+                                <input
+                                    value={userData?.githubLink}
+                                    onChange={({ target: { value: githubLink } }) => {
+                                        setUserData({ ...userData, githubLink });
+                                    }}
+                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Your Git Repo Link" />
+                            </div>
                             <div className='flex justify-start w-full items-start flex-col'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Wallet Network</label>
                                 <input
                                     disabled
                                     value={'Ethereum'}
                                     // value={userData?.walletNetwork}
-                                    onChange={({ target: { value: walletNetwork } }) => {
-                                        setUserData({ ...userData, walletNetwork });
-                                    }}
+                                    // onChange={({ target: { value: walletNetwork } }) => {
+                                    //     setUserData({ ...userData, walletNetwork });
+                                    // }}
                                     type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" 
                                 />
                                 <input
@@ -129,24 +148,72 @@ const EditProfilePage = () => {
                                     // onChange={({ target: { value: walletNetwork } }) => {
                                     //     setUserData({ ...userData, walletNetwork });
                                     // }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" 
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" 
+                                />
+                                <input
+                                    disabled
+                                    value={'Solana'}
+                                    // value={userData?.walletNetwork}
+                                    // onChange={({ target: { value: walletNetwork } }) => {
+                                    //     setUserData({ ...userData, walletNetwork });
+                                    // }}
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" 
+                                />
+                                <input
+                                    disabled
+                                    value={'Bitcoin'}
+                                    // value={userData?.walletNetwork}
+                                    // onChange={({ target: { value: walletNetwork } }) => {
+                                    //     setUserData({ ...userData, walletNetwork });
+                                    // }}
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" 
+                                />
+                                <input
+                                    disabled
+                                    value={'Cosmos'}
+                                    // value={userData?.walletNetwork}
+                                    // onChange={({ target: { value: walletNetwork } }) => {
+                                    //     setUserData({ ...userData, walletNetwork });
+                                    // }}
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter wallet Network" 
                                 />
                             </div>
                             <div className='flex justify-start w-full items-start flex-col'>
                                 <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Wallet Key</label>
                                 <input
-                                    value={userData?.walletNetwork}
-                                    onChange={({ target: { value: walletNetwork } }) => {
-                                        setUserData({ ...userData, walletNetwork });
+                                    value={userData?.ethWallet}
+                                    onChange={({ target: { value: ethWallet } }) => {
+                                        setUserData({ ...userData, ethWallet });
                                     }}
                                     type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" 
                                 />
                                 <input
-                                    value={userData?.walletKey}
-                                    onChange={({ target: { value: walletKey } }) => {
-                                        setUserData({ ...userData, walletKey });
+                                    value={userData?.polkaWallet}
+                                    onChange={({ target: { value: polkaWallet } }) => {
+                                        setUserData({ ...userData, polkaWallet });
                                     }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" 
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" 
+                                />
+                                <input
+                                    value={userData?.btcWallet}
+                                    onChange={({ target: { value: btcWallet } }) => {
+                                        setUserData({ ...userData, btcWallet });
+                                    }}
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" 
+                                />
+                                <input
+                                    value={userData?.solanaWallet}
+                                    onChange={({ target: { value: solanaWallet } }) => {
+                                        setUserData({ ...userData, solanaWallet });
+                                    }}
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" 
+                                />
+                                <input
+                                    value={userData?.cosmosWallet}
+                                    onChange={({ target: { value: cosmosWallet } }) => {
+                                        setUserData({ ...userData, cosmosWallet });
+                                    }}
+                                    type="text" className="py-2 mb-3 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter Wallet address" 
                                 />
                             </div>
                             {/* <div className='flex justify-start w-full items-start flex-col mt-[40px]'>
@@ -169,25 +236,7 @@ const EditProfilePage = () => {
                                     }}
                                     type="number" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter age" />
                             </div> */}
-                            {/* <div className='flex justify-center items-start w-full flex-col mt-[40px]'>
-                                <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Discord ID</label>
-                                <input
-                                    value={userData?.discordId}
-                                    onChange={({ target: { value: discordId } }) => {
-                                        setUserData({ ...userData, discordId });
-                                    }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Enter discord Id" />
-                            </div> */}
                             
-                            {/* <div className='flex justify-start w-full items-start flex-col mt-[40px]'>
-                                <label className="block w-full text-[17px] font-medium mb-2 dark:text-white text-start">Git Repo</label>
-                                <input
-                                    value={userData?.githubLink}
-                                    onChange={({ target: { value: githubLink } }) => {
-                                        setUserData({ ...userData, githubLink });
-                                    }}
-                                    type="text" className="py-2 px-3 block w-[350px] border-[1px] font-thin border-solid outline-none border-gray-300 rounded-lg text-[17px] focus:border-gray-500 dark:focus:border-[#4f4f4f] disabled:opacity-50 disabled:pointer-events-none bg-none dark:bg-[#1e2738] dark:border-[#303030] dark:text-gray-200 dark:placeholder:text-[#a7a7a7]" placeholder="Your Git Repo Link" />
-                            </div> */}
                         </div>
 
                     </div>
