@@ -67,17 +67,6 @@ https://github.com/user-attachments/assets/112b14cc-ed99-46e7-8b25-1eb46e1373f8
 <img src="./images/ticket.jpg" style="width:600px; height:300px;">
 
 
-## Additional Features
-
-  - **Dark mode.**
-
-  - **Wallet connection.**
-
-  - **Avatar File Upload.**
-
-  - **Can see user detail card on hover the user avatar.**
-
-
 ## Environment Installation 📝
 
 You will need:
