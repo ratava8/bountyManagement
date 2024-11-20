@@ -77,9 +77,6 @@ https://github.com/user-attachments/assets/112b14cc-ed99-46e7-8b25-1eb46e1373f8
 
   - **Can see user detail card on hover the user avatar.**
 
-https://github.com/potter1990po/Com-management/assets/154459049/149baf8a-ff9e-45c9-bb66-cfb84971bf05
-
-
 
 ## Environment Installation 📝
 
