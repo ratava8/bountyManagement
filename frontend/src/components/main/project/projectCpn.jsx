@@ -108,10 +108,10 @@ function ProjectCpn() {
             NotificationManager.error('Input ticket description', 'Error')
             return
         }
-        if (budget === 0 || budget === null) {
-            NotificationManager.error('Input budget', 'Error')
-            return
-        }
+        // if (budget === 0 || budget === null) {
+        //     NotificationManager.error('Input budget', 'Error')
+        //     return
+        // }
         try {
             const data = developer === '' ? {
                 title,

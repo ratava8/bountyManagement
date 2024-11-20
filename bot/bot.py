@@ -41,6 +41,7 @@ async def jobbot(interaction: discord.Interaction):
             job_description = self.description.value
             job_price = self.price.value
             job_token = self.token.value
+            job_githubLink = self.githubLink.value
 
             # Send the collected data to the backend
             project_data = {
@@ -48,7 +49,7 @@ async def jobbot(interaction: discord.Interaction):
                 "description": job_description,
                 "price": job_price,
                 "token": job_token,
-                "githubLink": "",
+                "githubLink": job_githubLink,
                 "liveDemo": '',
                 "status": 'To Do',
                 "developers": [],

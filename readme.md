@@ -1,50 +1,37 @@
 <div position="absolute" align="center">
-<h1 style=""><img src="./images/commune.gif" style="width:40px; height:40px;"/> Commune Project Management </h1>
+<h1 style=""><img src="./images/commune.gif" style="width:40px; height:40px;"/> Bounty System </h1>
 </div>
 
 ## About
-**A web application with a backend in Node.js and frontend in [React](https://reactjs.org) to
-manage projects of CommuneAI**
+**A system that manages bounties by connecting Discord bots and site.**
  
 ## Roles
+- **User**
 - **Developer**
 - **Project Manager**
 - **Admin**
 
-**At first when you sign up, you don't have any roles, you can't login until the Admin gives you a role, only admin can give you developer or project manager role.**
+**Users can view all bounties without signing up for the site**
 
-**After you have a role, you can sign in your account and start your working.**
+**Users can also view all bounties on Discord.**
 
-**If you have developer role, you can propose to the projects what you want and also suggest new ideas then after admin agrees, can start working on project**
+**If you have a developer role, you can suggest things you want to the project and start working on the project once the admin agrees.**
 
-**If you have project manager role, you can manage tickets - (create and review) for projects that you are managing**
+**If you have a project manager role, you can manage tickets (create and review) for the projects you manage.**
 
-**Admin can create and delete projects, can manage all projects, can accept new proposals from developers, can set and remove the developers and project managers for each projects and also can manage tickets.**
- 
-## Signin
+**Admins can create and delete projects, manage all projects, set and remove developers and project managers for each project, and manage tickets.**
 
-**At first you have to signup your account with your Email, Discord name and password**
+## Register and Login
 
-<img src="./images/sign-up.png" style="width:600px; height:300px;">
+**Users can register and login for the site using email, google, and polkadot wallet**
 
-**You can't login untill the Admin gives you a role. You have to wait**
-
-<img src="./images/user-not-allowed.png" style="width:600px; height:300px;">
-
-**Admin can see all users who signed up on the sidebar and can give them a role so that users can login and start work**
-
-https://github.com/potter1990po/Com-management/assets/154459049/942e7774-479e-4966-ab14-323140bfbff6
-
-**You can also login with google, metamask and polkadot**
-
-
-https://github.com/user-attachments/assets/6fdb2599-eefc-4148-8518-fc87bd8418d2
-
-
+<img src="./images/sign-up.jpg" style="width:600px; height:300px;">
+<img src="./images/sign-in.jpg" style="width:600px; height:300px;">
+<img src="./images/google.jpg" style="width:600px; height:300px;">
+<img src="./images/polkadot.jpg" style="width:600px; height:300px;">
 
 ## Usage
  - For developers
-    - **You can see all projects via All Project tag on Sidebar and propose to the projects what you want to work on**
     - **You can also see the projects that you are working on via My Project tag on Sidebar and see the status of the project.**
     - **You can work on your project with tickets. If the project started, you can work on tickets and after you finish one ticket, you have to move the ticket to the review step. Additionally you have to set Git repo and demo site url on the tickets**
 
@@ -54,29 +41,20 @@ https://github.com/user-attachments/assets/6fdb2599-eefc-4148-8518-fc87bd8418d2
     - **You can manage tickets of your projects. If the project started, you can create tickets with title and description and can review the following tickets that the devs completed and after that you have to move it to bounty request step.**
 
  - For Admin
-    - **You can see all projects via All Project tag on Sidebar and create and delete projects and accept new ideas and proposals.**
+    - **You can see all projects via All Project tag on Sidebar and create and delete projects and accept proposals.**
     - **You have to click Start project button to start the project.**
     - **You can also manage tickets. If you recieve bounty request tickets, you can check them and have to move them to the complete step.**
     - **You can control the roles of the users. You can give developer or project manager role to the users and also can remove it**
 
-https://github.com/potter1990po/Com-management/assets/154459049/596a5ffa-59a6-45f0-8c2d-ebe9f8f6cd3e
-
-
-https://github.com/potter1990po/Com-management/assets/154459049/3059561f-65e8-4cdc-9345-49c34162cc68
-
 ## Create Bounty (Website and discord bot)
 
-  - **Admins can create new bounties on the site. This will create the exact same bounty on Discord.**
+  - **Admins can create new bounties on the site. This will create the exact same bounty on Discord. Use /jobbot command**
 
   - **Conversely, on Discord, you can create new bounties using bots, and this will be reflected on the site at the same time.**
 
   - **People can apply through the website or through the Discord bot.**
 
-
-
 https://github.com/user-attachments/assets/112b14cc-ed99-46e7-8b25-1eb46e1373f8
-
-
 
 ## Tickets
 
@@ -86,7 +64,7 @@ https://github.com/user-attachments/assets/112b14cc-ed99-46e7-8b25-1eb46e1373f8
 
   - **You can also see the progress bar of the project and the status of ticket via chart.**
 
-<img src="./images/ticket.png" style="width:600px; height:300px;">
+<img src="./images/ticket.jpg" style="width:600px; height:300px;">
 
 
 ## Additional Features
@@ -109,26 +87,46 @@ You will need:
 
 - Node v20.11.0
 - MongoDB v6.04
+- Python 3.12.6
  
+TOKEN = 'YOUR_BOT_TOKEN_HERE'
+
+CHANNEL_ID = 'YOUR_DISCORD_CHANNEL_ID_HERE'
 ## Running The App 🖥️
 
 ### Run backend
 
 ```console
 > cd backend
-npm install
+yarn
 ```
 
 ```console
 > cd backend
-npm start
+yarn start
 ```
 
 ### Run Frontend
 
 ```console
-npm install --force
+> cd frontend
+yarn
 ```
 ```console
-npm start
+> cd frontend
+yarn start
+```
+
+### Run Discord bot
+
+```console
+> cd bot
+```
+```console
+> cd bot
+pip install -r requirement.txt
+```
+```
+> cd bot
+python bot.py
 ```
