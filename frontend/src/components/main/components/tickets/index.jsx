@@ -51,7 +51,7 @@ function Ticket({
                 zIndex: 1,
             }}
         >
-            <div className={`w-[100%] bg-[#fff] dark:bg-[rgb(36,36,36)] dark:border-[0px] border-[1px] border-gray-200 rounded-lg ticket shadow-md`}
+            <div className={`w-[100%] bg-[#fff] dark:bg-[#151e2d] dark:border-[0px] border-[1px] border-gray-200 rounded-lg ticket shadow-md`}
 
             >
                 {/* <span className=' bg-red-600 text-white text-[17px] p-1 top-2 rounded-[5px]'>$1000</span> */}
@@ -67,7 +67,7 @@ function Ticket({
 
                         </div>
                     </div>
-                    {(isManager || isAdmin || isDeveloper) && <div className='dropdown'>
+                    {/* {(isManager || isAdmin || isDeveloper) && <div className='dropdown'>
                         <Dropdown inline label="" className=" pl-0 dark:text-gray-200" style={{ paddingLeft: "0" }}>
                             <>
                                 <Dropdown.Item onClick={() => {
@@ -96,7 +96,7 @@ function Ticket({
                                 </Dropdown.Item>}
                             </>
                         </Dropdown>
-                    </div>}
+                    </div>} */}
                 </div>
                 <div
                     className='text-base text-slate-700 p-2 item-content before:bg-red-500 h-[100px] w-full overflow-y-scroll dark:text-gray-200 overflow-x-hidden whitespace-pre'>
