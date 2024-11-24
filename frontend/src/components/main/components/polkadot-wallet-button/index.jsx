@@ -153,7 +153,7 @@ function PolkadotWalletButton() {
       {extensionAvailable === true && account && isWalletModal === true && (
         <Zoom duration={500}>
           <div className="fixed top-[24%] left-[40%]">
-            <div className="p-4 flex items-center flex-col gap-4 rounded-2xl bg-[#eee] dark:bg-[#1a1b1f] w-[368px] h-[468px]">
+            <div className="p-4 flex items-center flex-col gap-4 rounded-2xl bg-[#eee] dark:bg-[#151e2d] w-[368px] h-[468px]">
               <div className="w-full justify-center relative flex items-center">
                 <p className="text-white text-[18px] font-extrabold">
                   Connect a Wallet

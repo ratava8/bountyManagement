@@ -459,9 +459,9 @@ export function Projects(project) {
                     <div className=' fixed w-screen h-screen top-0 left-0 bg-[#000] dark:bg-gray-500 opacity-40'>
                     </div>
                     <Zoom duration={500}>
-                        <div className='fixed w-[1000px] rounded-[10px] h-auto flex justify-start items-center top-[0px] z-[111] bg-[#eee] dark:bg-[rgb(36,36,36)] shadow-md'>
+                        <div className='fixed w-[700px] rounded-[10px] h-auto flex justify-start items-center top-[80px] z-[111] bg-[#eee] dark:bg-[#151e2d] shadow-md'>
 
-                            <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[100px]' style={{ fontFamily: 'Smack' }}>
+                            <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[50px]' style={{ fontFamily: 'Smack' }}>
                                 {/* <div className=' flex justify-center items-center  md:justify-start md:items-start text-[rgb(18,18,18)] w-full dark:text-white text-[30px] mt-[30px] lg:mt-[-30px]'>Profile details</div> */}
                                 <div className=' fixed top-[30px] right-[30px] cursor-pointer z-[99]' onClick={() => { handleEditCancel() }}>
                                     <XCircleIcon className="h-10 w-10 text-gray-800 dark:text-white" />
@@ -469,7 +469,7 @@ export function Projects(project) {
                                 <div className='flex justify-center items-center w-full'>
                                     <div className='flex justify-center items-center w-full'>
                                         <div className=' mt-[20px] w-full flex justify-center items-center'>
-                                            <div className='justify-center flex group items-center h-[8rem] w-[8rem] overflow-y-hidden bg-[#e1e1e1] hover:bg-[#cbcbcb] transition-all dark:bg-[rgb(30,30,30)] dark:hover:bg-[rgb(33,33,33)] cursor-pointer dark:border-[rgb(18,18,18)] border-[#ffffff] border-[5px] rounded-[50%]'>
+                                            <div className='justify-center flex group items-center h-[6rem] w-[6rem] overflow-y-hidden bg-[#e1e1e1] hover:bg-[#cbcbcb] transition-all dark:bg-[rgb(30,30,30)] dark:hover:bg-[rgb(33,33,33)] cursor-pointer dark:border-[rgb(18,18,18)] border-[#ffffff] border-[5px] rounded-[50%]'>
                                                 {avatarFile.url ?
                                                     <span className='w-full h-full flex overflow-y-hidden'>
                                                         <img className='w-full h-fit' src={avatarFile.url} alt="" />
@@ -489,7 +489,7 @@ export function Projects(project) {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='justify-center items-center mt-[50px] w-full md:gap-[100px] gap-[50px] lg:flex-row flex-col'>
+                                <div className='justify-center items-center mt-[30px] w-full md:gap-[100px] gap-[50px] lg:flex-row flex-col'>
                                     <div className='w-full items-start flex-col'>
                                         <TextField
                                             onChange={({ target: { value } }) => setTitle(value)}
@@ -497,38 +497,40 @@ export function Projects(project) {
                                             sx={{
                                                 // Root class for the input field
                                                 "& .MuiOutlinedInput-root": {
-                                                    color: "#5298e9",
+                                                    color: "white",
+                                                    backgroundColor: "#1e2738",
                                                     fontFamily: "Arial",
                                                     // Class for the border around the input field
                                                     "& .MuiOutlinedInput-notchedOutline": {
-                                                        borderColor: "#5298e9",
+                                                        borderColor: "#303030",
                                                         borderWidth: "1px",
                                                     },
                                                 },
                                                 // Class for the label of the input field
                                                 "& .MuiInputLabel-outlined": {
-                                                    color: "#5298e9",
+                                                    color: "white",
                                                     fontWeight: "bold",
                                                 },
                                             }}
                                             className='w-full' id="outlined-basic" label="Title" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[25px]'>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
                                                 "& .MuiOutlinedInput-root": {
-                                                    color: "#5298e9",
+                                                    color: "white",
+                                                    backgroundColor: "#1e2738",
                                                     fontFamily: "Arial",
                                                     // Class for the border around the input field
                                                     "& .MuiOutlinedInput-notchedOutline": {
-                                                        borderColor: "#5298e9",
+                                                        borderColor: "#303030",
                                                         borderWidth: "1px",
                                                     },
                                                 },
                                                 // Class for the label of the input field
                                                 "& .MuiInputLabel-outlined": {
-                                                    color: "#5298e9",
+                                                    color: "white",
                                                     fontWeight: "bold",
                                                 },
                                             }}
@@ -537,22 +539,23 @@ export function Projects(project) {
 
                                             className='w-full' id="outlined-basic" label="Github LInk" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[25px]'>
                                         <TextField
                                             sx={{
                                                 // Root class for the input field
                                                 "& .MuiOutlinedInput-root": {
-                                                    color: "#5298e9",
+                                                    color: "white",
+                                                    backgroundColor: "#1e2738",
                                                     fontFamily: "Arial",
                                                     // Class for the border around the input field
                                                     "& .MuiOutlinedInput-notchedOutline": {
-                                                        borderColor: "#5298e9",
+                                                        borderColor: "#303030",
                                                         borderWidth: "1px",
                                                     },
                                                 },
                                                 // Class for the label of the input field
                                                 "& .MuiInputLabel-outlined": {
-                                                    color: "#5298e9",
+                                                    color: "white",
                                                     fontWeight: "bold",
                                                 },
                                             }}
@@ -561,7 +564,7 @@ export function Projects(project) {
 
                                             className='w-full' id="outlined-basic" label="Price" variant="outlined" />
                                     </div>
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[25px]'>
                                         <TextField
                                             onChange={({ target: { value } }) => setDescription(value)}
                                             defaultValue={project.description}
@@ -569,17 +572,18 @@ export function Projects(project) {
                                             sx={{
                                                 // Root class for the input field
                                                 "& .MuiOutlinedInput-root": {
-                                                    color: "#5298e9",
+                                                    color: "white",
+                                                    backgroundColor: "#1e2738",
                                                     fontFamily: "Arial",
                                                     // Class for the border around the input field
                                                     "& .MuiOutlinedInput-notchedOutline": {
-                                                        borderColor: "#5298e9",
+                                                        borderColor: "#303030",
                                                         borderWidth: "1px",
                                                     },
                                                 },
                                                 // Class for the label of the input field
                                                 "& .MuiInputLabel-outlined": {
-                                                    color: "#5298e9",
+                                                    color: "white",
                                                     fontWeight: "bold",
                                                 },
                                             }}
@@ -589,7 +593,7 @@ export function Projects(project) {
                                             rows={5}
                                         />
                                     </div>
-                                    {user?.role.some((a) => a === 'Administrator') && [<div className='w-full items-start flex-col mt-[40px]'>
+                                    {user?.role.some((a) => a === 'Administrator') && [<div className='w-full items-start flex-col mt-[25px]'>
                                         <Autocomplete
                                             onChange={(e, values) => {
                                                 setSelectedDevelopers(values);
@@ -612,17 +616,18 @@ export function Projects(project) {
                                                         sx={{
                                                             // Root class for the input field
                                                             "& .MuiOutlinedInput-root": {
-                                                                color: "#5298e9",
+                                                                color: "white",
+                                                                backgroundColor: "#1e2738",
                                                                 fontFamily: "Arial",
                                                                 // Class for the border around the input field
                                                                 "& .MuiOutlinedInput-notchedOutline": {
-                                                                    borderColor: "#5298e9",
+                                                                    borderColor: "#303030",
                                                                     borderWidth: "1px",
                                                                 },
                                                             },
                                                             // Class for the label of the input field
                                                             "& .MuiInputLabel-outlined": {
-                                                                color: "#5298e9",
+                                                                color: "white",
                                                                 fontWeight: "bold",
                                                             },
                                                         }}
@@ -645,7 +650,7 @@ export function Projects(project) {
                                             }}
                                         />
                                     </div>,
-                                    <div className='w-full items-start flex-col mt-[40px]'>
+                                    <div className='w-full items-start flex-col mt-[25px]'>
                                         <Autocomplete
                                             onChange={(e, values) => {
                                                 setSelectedPms(values);
@@ -668,17 +673,18 @@ export function Projects(project) {
                                                         sx={{
                                                             // Root class for the input field
                                                             "& .MuiOutlinedInput-root": {
-                                                                color: "#5298e9",
+                                                                color: "white",
+                                                                backgroundColor: "#1e2738",
                                                                 fontFamily: "Arial",
                                                                 // Class for the border around the input field
                                                                 "& .MuiOutlinedInput-notchedOutline": {
-                                                                    borderColor: "#5298e9",
+                                                                    borderColor: "#303030",
                                                                     borderWidth: "1px",
                                                                 },
                                                             },
                                                             // Class for the label of the input field
                                                             "& .MuiInputLabel-outlined": {
-                                                                color: "#5298e9",
+                                                                color: "white",
                                                                 fontWeight: "bold",
                                                             },
                                                         }}
@@ -715,7 +721,7 @@ export function Projects(project) {
 
                                 </div>
 
-                                <div className=' flex gap-[10px] justify-center items-center w-full mt-[10px] mb-[40px]'>
+                                <div className=' flex gap-[10px] justify-center items-center w-full mt-[20px] mb-[30px]'>
                                     {<div onClick={handleUpdateProject} style={{ fontFamily: 'Might', width: '200px', fontSize: '18px', transition: '0.1s' }} className="relative rounded-[15px]  cursor-pointer group font-medium no-underline flex p-2 text-white items-center justify-center content-center focus:outline-none">
                                         <span className="absolute top-0 left-0 w-full h-full rounded-[15px] opacity-50 filter blur-sm bg-gradient-to-br from-[#256fc4] to-[#256fc4]"  ></span>
                                         <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-[#256fc4] to-[#256fc4]"></span>

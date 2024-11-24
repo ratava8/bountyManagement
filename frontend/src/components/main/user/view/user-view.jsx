@@ -104,7 +104,7 @@ export default function UserPage({ userData, isLoading }) {
 
   return (
     <Container className='pt-[100px] rounded-[50px] '>
-      <Card className=' border-none shadow-sm dark:bg-[rgb(36,36,36)]' style={{ borderRadius: "20px", border: "0px" }} >
+      <Card className=' border-none shadow-sm dark:bg-[#151e2d]' style={{ borderRadius: "20px", border: "0px" }} >
         <UserTableToolbar
           numSelected={selected.length}
           filterName={filterName}

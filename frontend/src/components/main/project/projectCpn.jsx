@@ -313,7 +313,7 @@ function ProjectCpn() {
     return (
         <div className=' w-full flex flex-col gap-[0px] justify-start  mb-[50px] mt-[150px] pr-[20px]'>
             <div className='w-full flex'>
-                <Card className="w-[50%] h-[300px] border-[1px] shadow-sm dark:bg-[rgb(36,36,36)] bg-[#fff] border-none" style={{ gap: "0", border: "none" }}>
+                <Card className="w-[50%] h-[300px] border-[1px] shadow-sm dark:bg-[#151e2d] bg-[#fff] border-none" style={{ gap: "0", border: "none" }}>
                     <div className='flex'>
                         <div className='w-[25%] mt-[30px] text-center'>
                             <img className='mb-3 rounded-full w-[150px] h-[150px] mx-auto shadow-lg' src={(project?.avatar === 'default' || !project?.avatar) ? projectImg : `${process.env.REACT_APP_API_BASE_URL}/${project?.avatar}`} alt="" />
@@ -347,7 +347,7 @@ function ProjectCpn() {
 
                 </Card>
                 <div className='px-[10px] w-[25%]'>
-                    <div className="p-[30px] w-[100%] h-[300px] border-[1px] rounded-[5px] shadow-sm dark:bg-[rgb(36,36,36)] bg-[#fff] border-none" style={{ gap: "0", border: "none" }}>
+                    <div className="p-[30px] w-[100%] h-[300px] border-[1px] rounded-[5px] shadow-sm dark:bg-[#151e2d] bg-[#fff] border-none" style={{ gap: "0", border: "none" }}>
                         <div className='flex w-full border-b-[1px] border-[#8080807d]  pb-[15px]'>
                             <div className='w-[50%] '>
                                 <div className='my-[5px] font-bold dark:text-gray-200'>
@@ -441,14 +441,14 @@ function ProjectCpn() {
                         </div>
                     </div>
                 </div>
-                <div className="rounded-[5px] w-[25%] h-[300px] border-[1px] shadow-sm dark:bg-[rgb(36,36,36)] bg-[#fff] border-none" style={{ gap: "0", border: "none" }}>
+                <div className="rounded-[5px] w-[25%] h-[300px] border-[1px] shadow-sm dark:bg-[#151e2d] bg-[#fff] border-none" style={{ gap: "0", border: "none" }}>
                     <Chart
                         chartType="PieChart"
                         data={chartData}
                         options={options}
                         width={"100%"}
                         height={'100%'}
-                        className="dark:bg-[rgb(36,36,36)]"
+                        className="dark:bg-[#151e2d]"
                     />
                 </div>
 
@@ -542,8 +542,8 @@ function ProjectCpn() {
                     <div className=' fixed w-screen h-screen top-0 left-0 bg-[#000] dark:bg-gray-500 opacity-40'>
                     </div>
                     <Zoom duration={500}>
-                        <div className='fixed w-[1000px] rounded-[30px] h-auto flex justify-start items-center top-[30px] z-[111] bg-[#eee] dark:bg-[rgb(36,36,36)] shadow-md'>
-                            <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[100px]' style={{ fontFamily: 'Smack' }}>
+                        <div className='fixed w-[700px] rounded-[30px] h-auto flex justify-start items-center top-[30px] z-[111] bg-[#eee] dark:bg-[#151e2d] shadow-md'>
+                            <div className='flex justify-center items-start w-[100%] overflow-y-visible flex-col px-[10px] sm:px-[50px]' style={{ fontFamily: 'Smack' }}>
                                 {/* <div className=' flex justify-center items-center  md:justify-start md:items-start text-[rgb(18,18,18)] w-full dark:text-white text-[30px] mt-[30px] lg:mt-[-30px]'>Profile details</div> */}
                                 <div className=' fixed top-[30px] right-[30px] cursor-pointer z-[99]' onClick={() => { setOpenModal(false) }}>
                                     <XCircleIcon class="h-10 w-10 text-gray-800 dark:text-white" />
@@ -557,17 +557,18 @@ function ProjectCpn() {
                                             sx={{
                                                 // Root class for the input field
                                                 "& .MuiOutlinedInput-root": {
-                                                    color: "#5298e9",
+                                                    color: "white",
+                                                    backgroundColor: "#1e2738",
                                                     fontFamily: "Arial",
                                                     // Class for the border around the input field
                                                     "& .MuiOutlinedInput-notchedOutline": {
-                                                        borderColor: "#5298e9",
+                                                        borderColor: "#303030",
                                                         borderWidth: "1px",
                                                     },
                                                 },
                                                 // Class for the label of the input field
                                                 "& .MuiInputLabel-outlined": {
-                                                    color: "#5298e9",
+                                                    color: "white",
                                                     fontWeight: "bold",
                                                 },
                                             }}
@@ -587,17 +588,18 @@ function ProjectCpn() {
                                             sx={{
                                                 // Root class for the input field
                                                 "& .MuiOutlinedInput-root": {
-                                                    color: "#5298e9",
+                                                    color: "white",
+                                                    backgroundColor: "#1e2738",
                                                     fontFamily: "Arial",
                                                     // Class for the border around the input field
                                                     "& .MuiOutlinedInput-notchedOutline": {
-                                                        borderColor: "#5298e9",
+                                                        borderColor: "#303030",
                                                         borderWidth: "1px",
                                                     },
                                                 },
                                                 // Class for the label of the input field
                                                 "& .MuiInputLabel-outlined": {
-                                                    color: "#5298e9",
+                                                    color: "white",
                                                     fontWeight: "bold",
                                                 },
                                             }}
@@ -613,17 +615,18 @@ function ProjectCpn() {
                                             sx={{
                                                 // Root class for the input field
                                                 "& .MuiOutlinedInput-root": {
-                                                    color: "#5298e9",
+                                                    color: "white",
+                                                    backgroundColor: "#1e2738",
                                                     fontFamily: "Arial",
                                                     // Class for the border around the input field
                                                     "& .MuiOutlinedInput-notchedOutline": {
-                                                        borderColor: "#5298e9",
+                                                        borderColor: "#303030",
                                                         borderWidth: "1px",
                                                     },
                                                 },
                                                 // Class for the label of the input field
                                                 "& .MuiInputLabel-outlined": {
-                                                    color: "#5298e9",
+                                                    color: "white",
                                                     fontWeight: "bold",
                                                 },
                                             }}
@@ -640,17 +643,18 @@ function ProjectCpn() {
                                                 sx={{
                                                     // Root class for the input field
                                                     "& .MuiOutlinedInput-root": {
-                                                        color: "#5298e9",
+                                                        color: "white",
+                                                        backgroundColor: "#1e2738",
                                                         fontFamily: "Arial",
                                                         // Class for the border around the input field
                                                         "& .MuiOutlinedInput-notchedOutline": {
-                                                            borderColor: "#5298e9",
+                                                            borderColor: "#303030",
                                                             borderWidth: "1px",
                                                         },
                                                     },
                                                     // Class for the label of the input field
                                                     "& .MuiInputLabel-outlined": {
-                                                        color: "#5298e9",
+                                                        color: "white",
                                                         fontWeight: "bold",
                                                     },
                                                 }}
@@ -661,17 +665,18 @@ function ProjectCpn() {
                                                 sx={{
                                                     // Root class for the input field
                                                     "& .MuiOutlinedInput-root": {
-                                                        color: "#5298e9",
+                                                        color: "white",
+                                                        backgroundColor: "#1e2738",
                                                         fontFamily: "Arial",
                                                         // Class for the border around the input field
                                                         "& .MuiOutlinedInput-notchedOutline": {
-                                                            borderColor: "#5298e9",
+                                                            borderColor: "#303030",
                                                             borderWidth: "1px",
                                                         },
                                                     },
                                                     // Class for the label of the input field
                                                     "& .MuiInputLabel-outlined": {
-                                                        color: "#5298e9",
+                                                        color: "white",
                                                         fontWeight: "bold",
                                                     },
                                                 }}
@@ -684,17 +689,18 @@ function ProjectCpn() {
                                         <Box>
                                             <FormControl fullWidth sx={{
                                                 "& .MuiOutlinedInput-root": {
-                                                    color: "#5298e9",
+                                                    color: "white",
+                                                    backgroundColor: "#1e2738",
                                                     fontFamily: "Arial",
                                                     // Class for the border around the input field
                                                     "& .MuiOutlinedInput-notchedOutline": {
-                                                        borderColor: "#5298e9",
+                                                        borderColor: "#303030",
                                                         borderWidth: "1px",
                                                     },
                                                 },
                                                 // Class for the label of the input field
                                                 "& .MuiInputLabel-outlined": {
-                                                    color: "#5298e9",
+                                                    color: "white",
                                                 },
                                             }}>
                                                 <InputLabel id="demo-simple-select-label"
