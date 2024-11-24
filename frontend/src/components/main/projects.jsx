@@ -102,11 +102,11 @@ export function Projects(project) {
         }
         let editable = false;
         const userId = user?._id
-        project.developers.forEach((a) => {
-            if (a._id === userId) {
-                editable = true;
-            }
-        })
+        // project.developers.forEach((a) => {
+        //     if (a._id === userId) {
+        //         editable = true;
+        //     }
+        // })
         project.pms.forEach((a) => {
             if (a._id === userId) {
                 editable = true;
@@ -114,6 +114,8 @@ export function Projects(project) {
         })
         return editable
     }
+
+    
     const handleUpdateProject = async () => {
         if (title === '') {
             NotificationManager.error('Input project title', 'Error')

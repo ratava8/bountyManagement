@@ -168,7 +168,7 @@ function Ticket({
                     </div>
 
 
-                    {(isAdmin || isManager || isDeveloper) && <div className='flex'>
+                    {(isAdmin || isManager) && <div className='flex'>
                         <div
                             className={ticketStatus.indexOf(ticket.status) > 0 ? '' : 'invisible'}
                             onClick={() => handleTicketStatusBack(ticket)}
