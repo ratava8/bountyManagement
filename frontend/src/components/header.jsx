@@ -280,7 +280,7 @@ const Header = () => {
                 );
               }}
             </ConnectButton.Custom> */}
-            <PolkadotWalletButton />
+            {/* <PolkadotWalletButton /> */}
           </div>
         </nav>
         <div className="md:hidden sp-menu">

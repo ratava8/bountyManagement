@@ -37,7 +37,7 @@ export const options = {
     title: "Project Status",
     is3D: true,
 };
-const ticketStatus = ['Created', 'Progressing', 'Reviewing', 'Bounty Request', 'Completed'];
+const ticketStatus = ['Created', 'Progressing', 'Completed'];
 
 function ProjectCpn() {
     const [title, setTitle] = useState('');
@@ -295,6 +295,21 @@ function ProjectCpn() {
         }
 
     }
+
+    const handleConflict = async () => {
+        if (id) {
+            console.log("---------Project-------", project?.reviewRequire);
+            await axios.put(process.env.REACT_APP_API_BASE_URL + "/projectConflict/", { ...project, reviewRequire: !project?.reviewRequire })
+            if (project?.reviewRequire === false) {
+                NotificationManager.error('This project was conflicted', 'Warning')
+            } else {
+                NotificationManager.success('This project was unconflicted', 'Success')
+            }
+        }
+        fetchProjectData();
+        fetchTickets();
+    }
+
     return (
         <div className=' w-full flex flex-col gap-[0px] justify-start  mb-[50px] mt-[150px] pr-[20px]'>
             <div className='w-full flex'>
@@ -442,7 +457,7 @@ function ProjectCpn() {
                 <div className=' dark:text-gray-100 text-gray-500'>
                     {tickets.length === 0 ? 'No tickets' : tickets.length + "  tickets"}
                 </div>
-                {(isManager || isAdmin) && <button
+                {(isManager || isAdmin) ? <button
                     className="flex items-center justify-center select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-[12px] px-6 rounded-lg bg-gray-900 dark:bg-[rgb(36,36,36)] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
                     type="button"
                     data-ripple-light="true"
@@ -462,13 +477,37 @@ function ProjectCpn() {
                     </svg>
 
                     <span className='ml-[5px]'>New Ticket</span>
-                </button>}
+                </button> :
+                    <button
+                        className="flex items-center justify-center select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-[12px] px-6 rounded-lg bg-gray-900 dark:bg-[rgb(36,36,36)] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                        type="button"
+                        data-ripple-light="true"
+                        style={{ fontFamily: "Smack" }}
+                        onClick={handleConflict}
+                    >
+                        {project?.reviewRequire === false ? (
+                            <>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                </svg>
+                                <span className='ml-[5px]'>Conflict</span>
+                            </>
+                        ) : (
+                            <>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                                </svg>
+                                <span className='ml-[5px]'>unConflict</span>
+                            </>
+                        )}
+                    </button>
+                }
             </div>
             {tickets.map((a, idx) => {
                 return (
                     <div key={idx} className='relative w-full m-0'>
                         <div className='absolute w-full  flex'>
-                            {[1, 2, 3, 4, 5].map((a, idx) => <div key={idx} className='border-1 border-dashed dark:border-gray-300 w-full'
+                            {[1, 2, 3].map((a, idx) => <div key={idx} className='border-1 border-dashed dark:border-gray-300 w-full'
 
                             >
                                 <div className='h-[310px]'></div>

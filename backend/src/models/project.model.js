@@ -24,6 +24,10 @@ const projectSchema = Schema({
     status: {
         type: String,
     },
+    reviewRequire: {
+        type: Boolean,
+        default: false
+    },
     developers: [
         {
             type: Schema.Types.ObjectId,

@@ -189,7 +189,7 @@ function LoginPage() {
                                                                 );
                                                             }}
                                                         </ConnectButton.Custom> */}
-                                                        <PolkadotWalletButton />
+                                                        {/* <PolkadotWalletButton /> */}
                                                     </div>
                                                     <button onClick={handleLogin} className="w-full text-white bg-[#256fc4] hover:bg-[#4788d2] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
                                                     <p className="text-sm font-light text-gray-500 dark:text-gray-400">

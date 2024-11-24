@@ -52,6 +52,7 @@ async def jobbot(interaction: discord.Interaction):
                 "githubLink": job_githubLink,
                 "liveDemo": '',
                 "status": 'To Do',
+                "reviewRequire": False,
                 "developers": [],
                 "stars": [],
                 "likes": [],

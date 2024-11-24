@@ -230,6 +230,23 @@ exports.updateAProject = async (req, res) => {
     }
 };
 
+exports.conflictAProject = async (req, res) => {
+    try {
+        const project = await projectModel.findByIdAndUpdate(req?.body?._id, req.body, { new: true, runValidators: true });
+        if (!project) {
+            return res.status(404).json({ msg: `No project with id: ${req?.body?._id}` });
+        } else {
+            res.status(200).json({
+                msg: `project with id: ${req?.body?._id} updated successfully.`,
+                project: project,
+            });
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: error.message });
+    }
+};
+
 exports.deleteAProject = async (req, res) => {
     try {
         const { id: projectId } = req.params;

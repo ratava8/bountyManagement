@@ -298,6 +298,10 @@ export function Projects(project) {
                                         ? 'warning'
                                         : 'success'}>{project.status}
                             </Label>
+                            {project?.reviewRequire === true && <Label color={'error'}
+                                className='ml-2'
+                            >Conflict
+                            </Label>}
                         </div>
                         <div className='flex gap-[10px]'>
                             <div className='flex py-[3px] hover:cursor-pointer' onClick={handleLike}>

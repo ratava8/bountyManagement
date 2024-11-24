@@ -45,12 +45,12 @@ function Nav() {
             <CheckBadgeIcon className="h-6 w-6" />
           }
           />}
-          {isAdmin && <MenuItem active={activeKey} setActiveKey={setActiveKey} title={'Payment Request'} Icon={
+          {/* {isAdmin && <MenuItem active={activeKey} setActiveKey={setActiveKey} title={'Payment Request'} Icon={
             <CurrencyDollarIcon className="h-6 w-6" />
-          } />}
-          <MenuItem active={activeKey} setActiveKey={setActiveKey} title={'New Ideas'} Icon={
+          } />} */}
+          {/* <MenuItem active={activeKey} setActiveKey={setActiveKey} title={'New Ideas'} Icon={
             <DocumentPlusIcon className="h-6 w-6" />
-          } />
+          } /> */}
           <MenuItem active={activeKey} setActiveKey={setActiveKey} title={'Developers'} Icon={
             <CodeBracketIcon className="h-6 w-6" />
           } />
@@ -60,9 +60,9 @@ function Nav() {
           <MenuItem active={activeKey} setActiveKey={setActiveKey} title={'Administrators'} Icon={
             <UserCircleIcon className="h-6 w-6" />
           } />
-          <MenuItem active={activeKey} setActiveKey={setActiveKey} title={'Users'} Icon={
+          {/* <MenuItem active={activeKey} setActiveKey={setActiveKey} title={'Users'} Icon={
             <UserPlusIcon className="h-6 w-6" />
-          } />
+          } /> */}
         </List>
       </div>
     </div>
