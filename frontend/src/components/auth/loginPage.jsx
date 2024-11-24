@@ -6,9 +6,9 @@ import { NotificationManager } from "react-notifications";
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { login, loginWithWallet } from "../../redux/actions/usersAction";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-import PolkadotWalletButton from '../main/components/polkadot-wallet-button';
-import metaIcon from '../../assets/metamask-icon.svg';
+// import { ConnectButton } from "@rainbow-me/rainbowkit";
+// import PolkadotWalletButton from '../main/components/polkadot-wallet-button';
+// import metaIcon from '../../assets/metamask-icon.svg';
 import gmailIcon from '../../assets/gmail.png';
 import { useAccount } from 'wagmi'
 
@@ -33,7 +33,7 @@ function LoginPage() {
     }
 
     useEffect(() => {
-        if(account.address && !localStorage.getItem("token")) {
+        if (account.address && !localStorage.getItem("token")) {
             dispatch(loginWithWallet({ address: account.address }))
         }
     }, [account.address])
@@ -57,7 +57,7 @@ function LoginPage() {
     });
 
     useEffect(
-        () => {            
+        () => {
             if (user && user.access_token) {
                 axios
                     .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
@@ -119,77 +119,17 @@ function LoginPage() {
                                                         <span className="text-sm cursor-pointer font-medium text-[#256fc4] hover:underline dark:text-[#256fc4]">Forgot password?</span>
                                                     </div>
                                                     <div
-                                                        style={{ display: "flex" }}
-                                                        className="flex items-center justify-center ml-[1px] gap-[25px]"
+                                                        className="flex items-center justify-center px-2"
                                                     >
-                                                        <button onClick={() => googleLogin()}>
+                                                        <hr className='w-2/5 text-gray-500 opacity-100 border-[2px] m-0'/>
+                                                        <button onClick={() => googleLogin()} className='w-1/5 flex justify-center'>
                                                             <img
                                                                 src={gmailIcon}
                                                                 alt="Gmail"
                                                                 className="cursor-pointer w-[30px] hover:w-[40px] transition-all"
                                                             />
                                                         </button>
-                                                        {/* <ConnectButton.Custom>
-                                                            {({
-                                                                account,
-                                                                chain,
-                                                                openAccountModal,
-                                                                openChainModal,
-                                                                openConnectModal,
-                                                                authenticationStatus,
-                                                                mounted,
-                                                            }) => {
-                                                                const ready = mounted && authenticationStatus !== 'loading';
-                                                                const connected =
-                                                                    ready &&
-                                                                    account &&
-                                                                    chain &&
-                                                                    (!authenticationStatus ||
-                                                                        authenticationStatus === 'authenticated');
-                                                                return (
-                                                                    <div
-                                                                        {...(!ready && {
-                                                                            'aria-hidden': true,
-                                                                            'style': {
-                                                                                opacity: 0,
-                                                                                pointerEvents: 'none',
-                                                                                userSelect: 'none',
-                                                                            },
-                                                                        })}
-                                                                    >
-                                                                        {(() => {
-                                                                            if (!connected) {
-                                                                                return (
-                                                                                    <div className="flex gap-[10px] justify-center items-center">
-                                                                                        <img onClick={openConnectModal} className="w-[30px] cursor-pointer hover:w-[40px] transition-all" src={metaIcon} alt="" />
-                                                                                    </div>
-                                                                                );
-                                                                            }
-
-                                                                            if (chain.unsupported) {
-                                                                                return (
-                                                                                    <button onClick={openChainModal} style={{ boxShadow: 'rgb(0 0 0 / 98%) 3px 3px 3px 3px' }}>
-                                                                                        Wrong network
-                                                                                    </button>
-                                                                                );
-                                                                            }
-                                                                            return (
-                                                                                <div className=" flex gap-[15px] justify-center items-center">
-                                                                                    <div
-                                                                                        className="align-middle select-none cursor-pointer font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-[10px] px-3 rounded-lg bg-[#2f3540] text-[rgb(18,18,18)] dark:text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] flex items-center gap-2"
-                                                                                        onClick={openAccountModal} style={{ fontFamily: 'Smack' }}>
-                                                                                        <span className=" text-[15px] first-letter:uppercase lowercase text-[rgb(18,18,18)] dark:text-white">
-                                                                                            {account.displayName}
-                                                                                        </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            );
-                                                                        })()}
-                                                                    </div>
-                                                                );
-                                                            }}
-                                                        </ConnectButton.Custom> */}
-                                                        {/* <PolkadotWalletButton /> */}
+                                                        <hr className='w-2/5 text-gray-500 opacity-100 border-[2px] m-0'/>
                                                     </div>
                                                     <button onClick={handleLogin} className="w-full text-white bg-[#256fc4] hover:bg-[#4788d2] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
                                                     <p className="text-sm font-light text-gray-500 dark:text-gray-400">

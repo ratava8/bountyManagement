@@ -6,8 +6,8 @@ import socket
 import json
 
 # Replace 'YOUR_BOT_TOKEN_HERE' with your actual bot token
-TOKEN = 'TOKEN'
-CHANNEL_ID = 'CHANNEL_ID'  # Replace with your Discord channel ID
+TOKEN = ''
+CHANNEL_ID = ''  # Replace with your Discord channel ID
 
 # Define intents
 intents = discord.Intents.default()
@@ -41,7 +41,6 @@ async def jobbot(interaction: discord.Interaction):
             job_description = self.description.value
             job_price = self.price.value
             job_token = self.token.value
-            job_githubLink = self.githubLink.value
 
             # Send the collected data to the backend
             project_data = {
@@ -49,7 +48,7 @@ async def jobbot(interaction: discord.Interaction):
                 "description": job_description,
                 "price": job_price,
                 "token": job_token,
-                "githubLink": job_githubLink,
+                "githubLink": "",
                 "liveDemo": '',
                 "status": 'To Do',
                 "reviewRequire": False,
@@ -119,7 +118,7 @@ async def handle_connection(reader, writer):
         token = project_data.get("token", "N/A")
 
         # Create a Discord embed
-        embed = discord.Embed(title="New Project Details", color=discord.Color.blue())
+        embed = discord.Embed(title="New Job Posting", color=discord.Color.blue())
         embed.add_field(name="Title", value=title, inline=False)
         embed.add_field(name="Description", value=description, inline=False)
         embed.add_field(name="Price", value=price, inline=True)

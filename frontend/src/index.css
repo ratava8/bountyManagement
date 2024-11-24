@@ -240,6 +240,11 @@ p {
   justify-content: center;
 }
 
+.project-detail-dropdown-border ul {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
 .sidebar .bg-blue-100:focus {
   background-color: #1e2738 !important;
 }

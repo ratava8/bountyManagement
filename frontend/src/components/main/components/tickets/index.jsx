@@ -43,6 +43,8 @@ function Ticket({
             ))
         )
     }
+    console.log(isDeveloper, isAdmin, isManager, 'ddd');
+    
     return (
         <div
             className={`${view ? 'invisible' : 'absolute'} w-[33.33%] duration-500 h-[310px] flex items-center p-[10px] `}
@@ -67,8 +69,8 @@ function Ticket({
 
                         </div>
                     </div>
-                    {/* {(isManager || isAdmin || isDeveloper) && <div className='dropdown'>
-                        <Dropdown inline label="" className=" pl-0 dark:text-gray-200" style={{ paddingLeft: "0" }}>
+                    {(isManager || isAdmin || isDeveloper) && <div className='dropdown project-detail-dropdown'>
+                        <Dropdown inline label="" className="pl-0 dark:text-gray-200 project-detail-dropdown-border" style={{ paddingLeft: "0" }}>
                             <>
                                 <Dropdown.Item onClick={() => {
                                     setActiveTicket(ticket);
@@ -96,7 +98,7 @@ function Ticket({
                                 </Dropdown.Item>}
                             </>
                         </Dropdown>
-                    </div>} */}
+                    </div>}
                 </div>
                 <div
                     className='text-base text-slate-700 p-2 item-content before:bg-red-500 h-[100px] w-full overflow-y-scroll dark:text-gray-200 overflow-x-hidden whitespace-pre'>

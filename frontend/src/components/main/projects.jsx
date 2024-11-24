@@ -249,7 +249,7 @@ export function Projects(project) {
                     </div>
 
                     <div className="flex fixed justify-end pt-1 project-detail-dropdown pl-0 dropdown" style={{ fontFamily: 'Smack', paddingLeft: "0" }}>
-                        <Dropdown inline label="" className="project-detail-dropdown-border pl-0" style={{ paddingLeft: "0" }}>
+                        <Dropdown inline label="" className="pl-0" style={{ paddingLeft: "0" }}>
                             <Dropdown.Item onClick={handleDetail}>
                                 <div
                                     className="block px-4 py-2 text-sm text-black hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"

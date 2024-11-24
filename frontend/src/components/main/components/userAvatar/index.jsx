@@ -76,7 +76,7 @@ function UserAvatar({ user }) {
                     // onMouseEnter={showDetail} 
                     // onMouseLeave={hiddenDetail} 
                     onClick={handleModel}
-                    className="rounded-[50%] cursor-pointer w-[40px] h-[40px] -ml-[15px]"
+                    className="rounded-[50%] cursor-pointer w-[40px] -ml-[15px]"
                     style={{ maxWidth: " max-content" }}
                     src={(user?.avatar === 'default' || !user?.avatar) ? '/images/12.png' : `${process.env.REACT_APP_API_BASE_URL}/${user?.avatar}`} alt="" />
             </div>

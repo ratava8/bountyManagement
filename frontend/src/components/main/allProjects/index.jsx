@@ -215,7 +215,7 @@ export default function AllProjects({ data, fetchProjects, viewMode, isDashboard
                 </ButtonGroup>
             </div>
             <div className='px-[100px] w-full flex justify-between mr-[320px]'>
-                <div className={`text-[20px] text-[#909090] ${visibleProjects.length > 0 ? '' : 'invisible'}`}>
+                <div className={`text-[20px] text-[white] ${visibleProjects.length > 0 ? '' : 'invisible'}`}>
                     {`${visibleProjects.length} project${visibleProjects.length === 1 ? '' : 's'} `}
                 </div>
                 {(!user?.role.some((aRole) => aRole === 'Administrator') && !viewMode) && isLogged && 

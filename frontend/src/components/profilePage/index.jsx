@@ -31,7 +31,7 @@ function ProfilePage() {
                     </div>
 
                 </div>
-                <div className='flex justify-center gap-[10px]'>
+                <div className='flex justify-center gap-[30px]'>
                     {userData?.role?.map((a, idx) => (
                         <Label key={idx} color="error" className="-ml-[15px] mt-[35px]">{a}</Label>
                     ))}
