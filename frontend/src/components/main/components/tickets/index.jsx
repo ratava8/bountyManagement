@@ -74,9 +74,6 @@ function Ticket({
                             <>
                                 <Dropdown.Item onClick={() => {
                                     setActiveTicket(ticket);
-                                    setTitle(ticket.title);
-                                    setDescription(ticket.description);
-                                    setBudget(ticket.budget);
                                     setDeveloper(ticket.developer);
                                     setIsDeveloper(isDeveloper);
                                     setOpenModal(true);

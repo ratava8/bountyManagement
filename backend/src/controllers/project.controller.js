@@ -162,15 +162,6 @@ exports.createAProject = async (req, res) => {
             });
         } else {
 
-             // Create a socket client to send data to the bot
-             const client = new net.Socket();
-             client.connect(65432, '127.0.0.1', () => {
-                 console.log('Connected to bot socket server');
-                 const data = JSON.stringify(body);
-                 client.write(data);
-                 client.end();
-             });
- 
              client.on('error', (error) => {
                  console.error(`Socket error: ${error.message}`);
              });
@@ -232,17 +223,11 @@ exports.updateAProject = async (req, res) => {
 
 exports.conflictAProject = async (req, res) => {
     try {
-        const project = await projectModel.findByIdAndUpdate(req?.body?._id, req.body, { new: true, runValidators: true });
-        if (!project) {
-            return res.status(404).json({ msg: `No project with id: ${req?.body?._id}` });
-        } else {
             res.status(200).json({
                 msg: `project with id: ${req?.body?._id} updated successfully.`,
                 project: project,
             });
-        }
     } catch (error) {
-        console.log(error);
         res.status(500).json({ error: error.message });
     }
 };
