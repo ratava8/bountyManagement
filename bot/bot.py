@@ -50,13 +50,10 @@ async def jobbot(interaction: discord.Interaction):
                 "token": job_token,
                 "githubLink": "",
                 "liveDemo": '',
-                "status": 'To Do',
                 "reviewRequire": False,
                 "developers": [],
                 "stars": [],
-                "likes": [],
                 "disLikes": [],
-                "pms": [],
                 "avatar": ''
             }
 
@@ -96,7 +93,7 @@ async def jobbot(interaction: discord.Interaction):
     await interaction.response.send_modal(JobModal())
 
 async def run_socket_server():
-    server = await asyncio.start_server(handle_connection, '127.0.0.1', 65432)
+    server = await asyncio.start_server(handle_connection, '127.0.0.1', 65332)
     print("Socket server started and listening for connections...")
 
     async with server:
